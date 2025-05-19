@@ -7,7 +7,7 @@ app.get("/", (req, res) => {
   res.send("servidor funcionando");
 });
 
-const userRoutes = require("./src/routes/users"); // ajuste o caminho conforme seu projeto
+const userRoutes = require("./src/routes/users");
 app.use("/usuarios", userRoutes);
 
 app.listen(3000, () => {
