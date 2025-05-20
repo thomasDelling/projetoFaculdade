@@ -1,11 +1,10 @@
-import LoginForm from './components/LoginForm';
+// src/App.jsx
+
+import React from 'react';
+import LoginPage from './pages/LoginPage';
 
 function App() {
-  return (
-    <div>
-      <LoginForm />
-    </div>
-  );
+  return <LoginPage />;
 }
 
 export default App;
