@@ -1,6 +1,9 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const app = express();
+const cors = require("cors");
+
+app.use(cors());
 
 const uri = 'mongodb+srv://thomasmaxdelling6:ThomasAIAI@a3.rlncqod.mongodb.net/DBA3?retryWrites=true&w=majority';
 
