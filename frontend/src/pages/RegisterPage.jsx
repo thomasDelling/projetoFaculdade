@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import './../styles/LoginPage.css';
+import "./../styles/RegisterPage.css";
 
 function RegisterPage() {
   const navigate = useNavigate();
@@ -49,9 +49,9 @@ function RegisterPage() {
   };
 
   return (
-    <div className="login-container">
+      <div className="login-container">
       <div className="login-box">
-        <h2>Cadastro</h2>
+        <h2>ArenaQuizz - Cadastro</h2>
         <form onSubmit={handleSubmit}>
           <div>
             <label>Nome</label>
@@ -92,8 +92,11 @@ function RegisterPage() {
           <button type="submit">Confirmar</button>
         </form>
         <p>{mensagem}</p>
+        <p>
+          Já possui uma conta? <a href="/login">Faça login</a>
+        </p>
       </div>
-    </div>
+      </div>
   );
 }
 

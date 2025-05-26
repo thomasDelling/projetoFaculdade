@@ -1,32 +1,27 @@
 // src/pages/LoginPage.jsx
 
 import React from "react";
-import "./../styles/LoginPage.css"; // Import the CSS file for styling
+import "./../styles/LoginPage.css";
 import { Link } from "react-router-dom";
-// Importing Link from react-router-dom for navigation
 
 function LoginPage() {
   return (
     <div className="login-container">
       <div className="login-box">
-        <h2>Login</h2>
+        <h2>ArenaQuizz - Login</h2>
         <form>
           <div>
-            <label>Nome</label>
-            <input type="text" />
+            <label htmlFor="email">Email</label>
+            <input id="email" type="email" aria-label="Email" />
           </div>
           <div>
-            <label>Email</label>
-            <input type="email" />
-          </div>
-          <div>
-            <label>Senha</label>
-            <input type="password" />
+            <label htmlFor="senha">Senha</label>
+            <input id="senha" type="password" aria-label="Senha" />
           </div>
           <button type="submit">Entrar</button>
         </form>
         <p>
-          Não tem conta? <Link to="/register">Cadastre-se</Link>
+          Não possui conta? <Link to="/register">Cadastre-se</Link>
         </p>
       </div>
     </div>
