@@ -1,37 +1,65 @@
 const User = require('../models/User');
 
-// POST /register
+// CREATE
 exports.registerUser = async (req, res) => {
   try {
-    const newUser = new User(req.body);
-    await newUser.save();
-    res.status(201).json({ message: 'Usuário registrado com sucesso!' });
+    const { nome, email, senha } = req.body;
+    if (!nome || !email || !senha) {
+      return res.status(400).json({ mensagem: 'Todos os campos são obrigatórios' });
+    }
+
+    const newUser = await User.create({ nome, email, senha });
+    res.status(201).json(newUser);
   } catch (err) {
-    res.status(400).json({ error: err.message });
+    res.status(500).json({ erro: 'Erro ao criar usuário', detalhes: err.message });
   }
 };
 
-// GET /users
+// READ - Todos
 exports.getAllUsers = async (req, res) => {
-  const users = await User.find();
-  res.json(users);
+  try {
+    const users = await User.find();
+    res.json(users);
+  } catch (err) {
+    res.status(500).json({ erro: 'Erro ao buscar usuários', detalhes: err.message });
+  }
 };
 
-// GET /users/:id
+// READ - Por ID
 exports.getUserById = async (req, res) => {
-  const user = await User.findById(req.params.id);
-  if (!user) return res.status(404).json({ error: 'Usuário não encontrado' });
-  res.json(user);
+  try {
+    const user = await User.findById(req.params.id);
+    if (!user) {
+      return res.status(404).json({ mensagem: 'Usuário não encontrado' });
+    }
+    res.json(user);
+  } catch {
+    res.status(400).json({ mensagem: 'ID inválido' });
+  }
 };
 
-// PUT /users/:id
+// UPDATE
 exports.updateUser = async (req, res) => {
-  const user = await User.findByIdAndUpdate(req.params.id, req.body, { new: true });
-  res.json(user);
+  try {
+    const user = await User.findByIdAndUpdate(req.params.id, req.body, { new: true });
+    if (!user) {
+      return res.status(404).json({ mensagem: 'Usuário não encontrado' });
+    }
+    res.json(user);
+  } catch {
+    res.status(400).json({ mensagem: 'ID inválido' });
+  }
 };
 
-// DELETE /users/:id
+// DELETE
 exports.deleteUser = async (req, res) => {
-  await User.findByIdAndDelete(req.params.id);
-  res.json({ message: 'Usuário deletado com sucesso!' });
+  try {
+    const user = await User.findByIdAndDelete(req.params.id);
+    if (!user) {
+      return res.status(404).json({ mensagem: 'Usuário não encontrado' });
+    }
+    res.json({ mensagem: 'Usuário deletado com sucesso!' });
+  } catch {
+    res.status(400).json({ mensagem: 'ID inválido' });
+  }
 };

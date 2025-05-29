@@ -1,31 +1,44 @@
-const express = require("express");
-const mongoose = require("mongoose");
-const cors = require("cors");
+const express = require('express');
+const mongoose = require('mongoose');
+const cors = require('cors');
+
+const connectDB = require('./src/config/db');
+const errorHandler = require('./src/middlewares/error');
+
+const authRoutes = require('./src/routes/auth');
+const quizRoutes = require('./src/routes/quiz');
+const userRoutes = require('./src/routes/user');
+
+
 const app = express();
 
-const authRoutes = require("./src/routes/auth");
-const quizRoutes = require("./src/routes/quiz");
-const userRoutes = require("./src/routes/user");
+// ✅ Conectar no MongoDB
+connectDB();
 
-const uri = 'mongodb+srv://thomasmaxdelling6:ThomasAIAI@a3.rlncqod.mongodb.net/DBA3?retryWrites=true&w=majority';
-
-// ✅ middleware deve vir primeiro
+// ✅ Middlewares
 app.use(cors());
 app.use(express.json());
 
-// ✅ rotas depois
+// ✅ Rotas
 app.use('/auth', authRoutes);
 app.use('/quiz', quizRoutes);
 app.use('/usuarios', userRoutes);
 
-mongoose.connect(uri)
-  .then(() => console.log("🟢 MongoDB conectado"))
-  .catch(err => console.error("❌ Erro ao conectar:", err));
-
-app.get("/", (req, res) => {
-  res.send("Servidor funcionando");
+// ✅ Rota teste
+app.get('/', (req, res) => {
+  res.send('Servidor funcionando 🔥');
 });
 
-app.listen(3000, () => {
-  console.log("🚀 Servidor rodando na porta 3000");
+// ✅ Tratamento de rotas não existentes
+app.use((req, res) => {
+  res.status(404).json({ mensagem: 'Rota não encontrada' });
+});
+
+// ✅ Middleware de erro
+app.use(errorHandler);
+
+// ✅ Subindo o servidor
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => {
+  console.log(`🚀 Servidor rodando na porta ${PORT}`);
 });

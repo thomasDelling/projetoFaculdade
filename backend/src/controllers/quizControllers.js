@@ -1,5 +1,6 @@
 const Quiz = require('../models/Quiz');
 
+// ✅ Criar Quiz
 exports.createQuiz = async (req, res) => {
   try {
     const { pergunta, alternativas, respostaCorreta } = req.body;
@@ -8,9 +9,16 @@ exports.createQuiz = async (req, res) => {
       return res.status(400).json({ error: 'Campos obrigatórios faltando' });
     }
 
-    const novoQuiz = new Quiz({ pergunta, alternativas, respostaCorreta });
-    await novoQuiz.save();
+    const novoQuiz = new Quiz({
+      pergunta,
+      alternativaA: alternativas.A,
+      alternativaB: alternativas.B,
+      alternativaC: alternativas.C,
+      alternativaD: alternativas.D,
+      respostaCorreta
+    });
 
+    await novoQuiz.save();
     res.status(201).json(novoQuiz);
   } catch (error) {
     console.error(error);
@@ -18,6 +26,7 @@ exports.createQuiz = async (req, res) => {
   }
 };
 
+// ✅ Buscar todos
 exports.getAllQuiz = async (req, res) => {
   try {
     const quizzes = await Quiz.find();
@@ -28,47 +37,55 @@ exports.getAllQuiz = async (req, res) => {
   }
 };
 
+// ✅ Buscar por ID
 exports.getQuizById = async (req, res) => {
   try {
     const quiz = await Quiz.findById(req.params.id);
     if (!quiz) return res.status(404).json({ error: 'Quiz não encontrado' });
     res.json(quiz);
   } catch (error) {
-    console.error(error);
-    res.status(500).json({ error: 'Erro ao buscar quiz' });
+    res.status(400).json({ error: 'ID inválido' });
   }
 };
 
+// ✅ Atualizar
 exports.updateQuiz = async (req, res) => {
   try {
-    const { id } = req.params;
     const { pergunta, alternativas, respostaCorreta } = req.body;
 
-    const quizAtualizado = await Quiz.findByIdAndUpdate(
-      id,
-      { pergunta, alternativas, respostaCorreta },
+    const updateData = { pergunta, respostaCorreta };
+
+    if (alternativas) {
+      updateData.alternativaA = alternativas.A;
+      updateData.alternativaB = alternativas.B;
+      updateData.alternativaC = alternativas.C;
+      updateData.alternativaD = alternativas.D;
+    }
+
+    const quiz = await Quiz.findByIdAndUpdate(
+      req.params.id,
+      updateData,
       { new: true }
     );
 
-    if (!quizAtualizado) {
-      return res.status(404).json({ error: 'Quiz não encontrado' });
-    }
+    if (!quiz) return res.status(404).json({ error: 'Quiz não encontrado' });
 
-    res.json(quizAtualizado);
+    res.json(quiz);
   } catch (error) {
     console.error(error);
-    res.status(500).json({ error: 'Erro ao atualizar quiz' });
+    res.status(400).json({ error: 'Erro ao atualizar quiz' });
   }
 };
 
-
+// ✅ Deletar
 exports.deleteQuiz = async (req, res) => {
   try {
     const quiz = await Quiz.findByIdAndDelete(req.params.id);
     if (!quiz) return res.status(404).json({ error: 'Quiz não encontrado' });
-    res.json({ message: 'Quiz deletado com sucesso' });
+
+    res.json({ mensagem: 'Quiz deletado com sucesso' });
   } catch (error) {
     console.error(error);
-    res.status(500).json({ error: 'Erro ao deletar quiz' });
+    res.status(400).json({ error: 'Erro ao deletar quiz' });
   }
 };

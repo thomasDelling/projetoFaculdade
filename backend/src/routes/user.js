@@ -1,58 +1,45 @@
-const express = require("express");
+const express = require('express');
 const router = express.Router();
-const User = require("../models/User");
+const User = require('../models/User');
 
-// CREATE - Novo usuário
-router.post("/", async (req, res) => {
+// 🔥 Criar usuário
+router.post('/', async (req, res) => {
   try {
-    const { nome, email, senha } = req.body;
-    if (!nome || !email || !senha) {
-      return res.status(400).json({ mensagem: "Todos os campos são obrigatórios" });
-    }
-
-    const novoUsuario = await User.create({ nome, email, senha });
-    res.status(201).json(novoUsuario);
+    const user = new User(req.body);
+    await user.save();
+    res.status(201).json(user);
   } catch (err) {
-    res.status(500).json({ erro: "Erro ao criar usuário", detalhes: err.message });
+    res.status(400).json({ error: err.message });
   }
 });
 
-// READ - Listar todos
-router.get("/", async (req, res) => {
-  const usuarios = await User.find();
-  res.json(usuarios);
-});
-
-// READ - Buscar por ID
-router.get("/:id", async (req, res) => {
+// 🔥 Listar todos
+router.get('/', async (req, res) => {
   try {
-    const usuario = await User.findById(req.params.id);
-    if (!usuario) return res.status(404).json({ mensagem: "Usuário não encontrado" });
-    res.json(usuario);
-  } catch {
-    res.status(400).json({ mensagem: "ID inválido" });
+    const users = await User.find();
+    res.json(users);
+  } catch (err) {
+    res.status(500).json({ error: err.message });
   }
 });
 
-// UPDATE
-router.put("/:id", async (req, res) => {
+// 🔥 Editar
+router.put('/:id', async (req, res) => {
   try {
-    const atualizado = await User.findByIdAndUpdate(req.params.id, req.body, { new: true });
-    if (!atualizado) return res.status(404).json({ mensagem: "Usuário não encontrado" });
-    res.json(atualizado);
-  } catch {
-    res.status(400).json({ mensagem: "ID inválido" });
+    const updated = await User.findByIdAndUpdate(req.params.id, req.body, { new: true });
+    res.json(updated);
+  } catch (err) {
+    res.status(400).json({ error: err.message });
   }
 });
 
-// DELETE
-router.delete("/:id", async (req, res) => {
+// 🔥 Deletar
+router.delete('/:id', async (req, res) => {
   try {
-    const deletado = await User.findByIdAndDelete(req.params.id);
-    if (!deletado) return res.status(404).json({ mensagem: "Usuário não encontrado" });
-    res.json({ mensagem: "Usuário deletado" });
-  } catch {
-    res.status(400).json({ mensagem: "ID inválido" });
+    await User.findByIdAndDelete(req.params.id);
+    res.json({ message: 'Usuário deletado' });
+  } catch (err) {
+    res.status(400).json({ error: err.message });
   }
 });
 
