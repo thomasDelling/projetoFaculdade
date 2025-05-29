@@ -3,20 +3,24 @@ const mongoose = require("mongoose");
 const cors = require("cors");
 const app = express();
 
+const authRoutes = require("./src/routes/auth");
 const quizRoutes = require("./src/routes/quiz");
 const userRoutes = require("./src/routes/user");
 
 const uri = 'mongodb+srv://thomasmaxdelling6:ThomasAIAI@a3.rlncqod.mongodb.net/DBA3?retryWrites=true&w=majority';
 
-app.use(cors());          // 1. CORS primeiro
-app.use(express.json());  // 2. Parser JSON depois
+// ✅ middleware deve vir primeiro
+app.use(cors());
+app.use(express.json());
+
+// ✅ rotas depois
+app.use('/auth', authRoutes);
+app.use('/quiz', quizRoutes);
+app.use('/usuarios', userRoutes);
 
 mongoose.connect(uri)
   .then(() => console.log("🟢 MongoDB conectado"))
   .catch(err => console.error("❌ Erro ao conectar:", err));
-
-app.use('/quiz', quizRoutes);       // 3. Rotas
-app.use('/usuarios', userRoutes);
 
 app.get("/", (req, res) => {
   res.send("Servidor funcionando");

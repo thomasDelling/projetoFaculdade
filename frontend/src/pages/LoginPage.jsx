@@ -1,28 +1,47 @@
-// src/pages/LoginPage.jsx
-
-import React from "react";
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import "./../styles/LoginPage.css";
-import { Link } from "react-router-dom";
 
 function LoginPage() {
+  const [email, setEmail] = useState("");
+  const [senha, setSenha] = useState("");
+  const [erro, setErro] = useState("");
+  const navigate = useNavigate();
+
+  const handleLogin = async (e) => {
+    e.preventDefault();
+
+    const res = await fetch("http://localhost:3000/auth/login", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ email, senha })
+    });
+
+    if (res.ok) {
+      const data = await res.json();
+      navigate("/home");
+    } else {
+      setErro("Email ou senha inválidos");
+    }
+  };
+
   return (
     <div className="login-container">
       <div className="login-box">
         <h2>ArenaQuizz - Login</h2>
-        <form>
+        <form onSubmit={handleLogin}>
           <div>
-            <label htmlFor="email">Email</label>
-            <input id="email" type="email" aria-label="Email" />
+            <label>Email</label>
+            <input type="email" value={email} onChange={e => setEmail(e.target.value)} />
           </div>
           <div>
-            <label htmlFor="senha">Senha</label>
-            <input id="senha" type="password" aria-label="Senha" />
+            <label>Senha</label>
+            <input type="password" value={senha} onChange={e => setSenha(e.target.value)} />
           </div>
+          {erro && <p style={{ color: "red" }}>{erro}</p>}
           <button type="submit">Entrar</button>
         </form>
-        <p>
-          Não possui conta? <Link to="/register">Cadastre-se</Link>
-        </p>
+        <p>Não possui conta? <a href="/register">Cadastre-se</a></p>
       </div>
     </div>
   );
