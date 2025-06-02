@@ -1,0 +1,40 @@
+.menu-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.menu-card {
+  background-color: #ffffff30;
+  padding: 40px;
+  border-radius: 20px;
+  box-shadow: 0 4px 15px #00000050;
+  text-align: center;
+}
+
+.menu-card h1 {
+  margin-bottom: 10px;
+}
+
+.menu-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.menu-buttons button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 12px;
+  background-color: #00bfff;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.menu-buttons button:hover {
+  background-color: #009acd;
+}

@@ -19,7 +19,8 @@ function LoginPage() {
 
     if (res.ok) {
       const data = await res.json();
-      navigate("/home");
+      // ✅ Após login bem-sucedido, redireciona para a página Quiz
+      navigate("/quiz");
     } else {
       setErro("Email ou senha inválidos");
     }
@@ -32,11 +33,21 @@ function LoginPage() {
         <form onSubmit={handleLogin}>
           <div>
             <label>Email</label>
-            <input type="email" value={email} onChange={e => setEmail(e.target.value)} />
+            <input
+              type="email"
+              value={email}
+              onChange={e => setEmail(e.target.value)}
+              required
+            />
           </div>
           <div>
             <label>Senha</label>
-            <input type="password" value={senha} onChange={e => setSenha(e.target.value)} />
+            <input
+              type="password"
+              value={senha}
+              onChange={e => setSenha(e.target.value)}
+              required
+            />
           </div>
           {erro && <p style={{ color: "red" }}>{erro}</p>}
           <button type="submit">Entrar</button>
