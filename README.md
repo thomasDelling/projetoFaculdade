@@ -28,6 +28,6 @@
 
 ## Autor
 
-Thomas Max Delling
-Pedro Arthur Canavezi
+Thomas Max Delling <br>
+Pedro Arthur Canavezi <br>
 João 
