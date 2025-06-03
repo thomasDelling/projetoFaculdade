@@ -30,4 +30,4 @@
 
 Thomas Max Delling <br>
 Pedro Arthur Canavezi <br>
-João 
+João Victor Rosa de Jesus
