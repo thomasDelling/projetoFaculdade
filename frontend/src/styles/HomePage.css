@@ -1,0 +1,222 @@
+/* Reset básico */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+  background: linear-gradient(135deg, #1e2a78, #324b8a);
+  color: #f0f0f0;
+  min-height: 100vh;
+  padding: 40px 20px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  font-size: 16px;
+}
+
+.container {
+  width: 100%;
+  max-width: 1200px;
+  display: flex;
+  gap: 40px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+/* Cards */
+.card {
+  background: #212d59;
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.4);
+  padding: 25px 30px;
+  flex: 1 1 480px;
+  max-height: 90vh;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.card h2 {
+  margin-bottom: 20px;
+  font-weight: 700;
+  font-size: 1.8rem;
+  color: #82c0ff;
+  text-align: center;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+}
+
+/* Forms */
+.form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  margin-bottom: 25px;
+  justify-content: center;
+}
+
+.form input {
+  flex: 1 1 45%;
+  min-width: 180px;
+  padding: 14px 18px;
+  border-radius: 8px;
+  border: none;
+  outline: none;
+  font-size: 1rem;
+  transition: background-color 0.3s ease;
+  color: #444;             /* letra mais escura que o normal */
+  background-color: #e7eaf6; /* fundo claro azul quase branco */
+  font-weight: 600;
+}
+
+.form input::placeholder {
+  color: #7a7f94;
+}
+
+.form input:focus {
+  background-color: #374797;
+}
+
+/* Botões */
+.form button {
+  flex: 1 1 100%;
+  background: #4a90e2;
+  color: white;
+  border: none;
+  padding: 16px;
+  border-radius: 10px;
+  font-weight: 700;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  letter-spacing: 1px;
+  margin-top: 5px;
+}
+
+.form button:hover {
+  background: #357abd;
+}
+
+/* Tabela aumentada para preencher quase toda a largura do card */
+table {
+  width: 98%;
+  margin: 0 auto;
+  border-collapse: separate;
+  border-spacing: 0 6px;
+  background: #39487f; /* azul mais escuro que o card */
+  border-radius: 12px;
+  box-shadow: 0 8px 18px rgba(0,0,0,0.4);
+  overflow: hidden;
+}
+
+/* Cabeçalho */
+thead {
+  background: #5067b8;
+}
+
+thead th {
+  color: #d0d9ff;
+  padding: 16px 12px;
+  text-transform: uppercase;
+  font-weight: 700;
+  font-size: 1rem;
+  letter-spacing: 0.07em;
+  border-right: 1px solid #7f8acb;
+}
+
+thead th:last-child {
+  border-right: none;
+}
+
+/* Corpo */
+tbody tr {
+  background-color: #475b9f;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+  transition: background-color 0.3s ease;
+  cursor: default;
+  border-radius: 8px;
+  display: table-row; /* importante para manter linha */
+}
+
+tbody tr:hover {
+  background-color: #5c73be;
+}
+
+tbody td {
+  padding: 14px 12px;
+  color: #e1e8ff;
+  font-weight: 600;
+  font-size: 1rem;
+  text-align: center;
+  border-right: 1px solid #6478b8;
+}
+
+tbody td:last-child {
+  border-right: none;
+  display: flex;
+  justify-content: center;
+  gap: 14px;
+}
+
+/* Botões na tabela */
+button {
+  padding: 8px 16px;
+  border-radius: 6px;
+  border: none;
+  font-weight: 700;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  color: white;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+}
+
+button:hover {
+  filter: brightness(0.9);
+}
+
+button:first-child {
+  background-color: #6aaa64; /* verde mais vibrante */
+}
+
+button:last-child {
+  background-color: #d0454f; /* vermelho mais escuro */
+}
+
+/* Scroll dentro dos cards para tabelas grandes */
+.card::-webkit-scrollbar {
+  width: 10px;
+}
+
+.card::-webkit-scrollbar-track {
+  background: #19254b;
+  border-radius: 10px;
+}
+
+.card::-webkit-scrollbar-thumb {
+  background-color: #4a90e2;
+  border-radius: 10px;
+}
+
+/* Responsividade */
+@media (max-width: 900px) {
+  .container {
+    flex-direction: column;
+    align-items: center;
+  }
+  .card {
+    max-width: 100%;
+  }
+  .form input {
+    flex: 1 1 100%;
+  }
+  .form button {
+    flex: 1 1 100%;
+  }
+  table {
+    width: 100%;
+  }
+}
