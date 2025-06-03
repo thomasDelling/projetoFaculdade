@@ -6,13 +6,13 @@ const USER_API = "http://localhost:3000/usuarios";
 const QUIZ_API = "http://localhost:3000/quiz";
 
 export default function HomePage() {
-  // 🔥 Estados de usuários
+  // Estados de usuários
   const [users, setUsers] = useState([]);
   const [userForm, setUserForm] = useState({ nome: "", email: "", senha: "" });
   const [isEditingUser, setIsEditingUser] = useState(false);
   const [editUserId, setEditUserId] = useState(null);
 
-  // 🔥 Estados de perguntas
+  // Estados de perguntas
   const [quizzes, setQuizzes] = useState([]);
   const [quizForm, setQuizForm] = useState({
     pergunta: "",
@@ -25,7 +25,7 @@ export default function HomePage() {
   const [isEditingQuiz, setIsEditingQuiz] = useState(false);
   const [editQuizId, setEditQuizId] = useState(null);
 
-  // 🚀 Carregar dados
+  // Carregar dados
   useEffect(() => {
     fetchUsers();
     fetchQuizzes();
@@ -41,7 +41,7 @@ export default function HomePage() {
     setQuizzes(res.data);
   };
 
-  // 🔧 CRUD Usuários
+  // CRUD Usuários
   const handleUserSubmit = async (e) => {
     e.preventDefault();
     if (!userForm.nome || !userForm.email || !userForm.senha) {
@@ -71,7 +71,7 @@ export default function HomePage() {
     }
   };
 
-  // 🔧 CRUD Perguntas
+  // CRUD Perguntas
   const handleQuizSubmit = async (e) => {
     e.preventDefault();
     const { pergunta, alternativaA, alternativaB, alternativaC, alternativaD, respostaCorreta } = quizForm;
@@ -133,7 +133,7 @@ export default function HomePage() {
     <div className="container">
       
 
-      {/* 🔥 Usuários */}
+      {/* Usuários */}
       <div className="card">
         <h2>Usuários</h2>
 
@@ -184,7 +184,7 @@ export default function HomePage() {
         </table>
       </div>
 
-      {/* 🔥 Perguntas */}
+      {/* Perguntas */}
       <div className="card">
         <h2>Perguntas</h2>
 

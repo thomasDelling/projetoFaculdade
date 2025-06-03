@@ -14,7 +14,7 @@ export default function QuizMenu() {
         <div className="menu-buttons">
           <button onClick={() => navigate("/quiz")}>🚀 Iniciar Jogo</button>
           <button onClick={() => navigate("/admin")}>⚙️ Configurações</button>
-          <button onClick={() => navigate("/")}>🔒 Logout</button>
+          <button onClick={() => navigate("/login")}>🔒 Logout</button>
         </div>
       </div>
     </div>
