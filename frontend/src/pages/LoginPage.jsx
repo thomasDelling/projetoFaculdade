@@ -19,8 +19,8 @@ function LoginPage() {
 
     if (res.ok) {
       const data = await res.json();
-      // ✅ Após login bem-sucedido, redireciona para a página Quiz
-      navigate("/quiz");
+      // Alterado: Redireciona para o menu em vez do quiz
+      navigate("/menu");
     } else {
       setErro("Email ou senha inválidos");
     }
