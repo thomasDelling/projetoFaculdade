@@ -1,8 +1,9 @@
+// src/components/Login.jsx
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import "./../styles/ReL.css";
+import "../styles/Login.css";
 
-function LoginPage() {
+function Login() {
   const [email, setEmail] = useState("");
   const [senha, setSenha] = useState("");
   const [erro, setErro] = useState("");
@@ -14,21 +15,21 @@ function LoginPage() {
     const res = await fetch("http://localhost:3000/auth/login", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ email, senha })
+      body: JSON.stringify({ email, senha }),
     });
 
     if (res.ok) {
       const data = await res.json();
-      // Alterado: Redireciona para o menu em vez do quiz
-      navigate("/menu");
+      const role = data.user.role;
+      navigate(role === "admin" ? "/admin" : "/home");
     } else {
       setErro("Email ou senha inválidos");
     }
   };
 
   return (
-    <div className="login-container">
-      <div className="login-box">
+    <div className="login-wrapper">
+      <div className="login-container">
         <h2>ArenaQuizz - Login</h2>
         <form onSubmit={handleLogin}>
           <div>
@@ -36,7 +37,7 @@ function LoginPage() {
             <input
               type="email"
               value={email}
-              onChange={e => setEmail(e.target.value)}
+              onChange={(e) => setEmail(e.target.value)}
               required
             />
           </div>
@@ -45,17 +46,19 @@ function LoginPage() {
             <input
               type="password"
               value={senha}
-              onChange={e => setSenha(e.target.value)}
+              onChange={(e) => setSenha(e.target.value)}
               required
             />
           </div>
-          {erro && <p style={{ color: "red" }}>{erro}</p>}
+          {erro && <p className="erro">{erro}</p>}
           <button type="submit">Entrar</button>
         </form>
-        <p>Não possui conta? <a href="/register">Cadastre-se</a></p>
+        <p>
+          Não possui conta? <a href="/register">Cadastre-se</a>
+        </p>
       </div>
     </div>
   );
 }
 
-export default LoginPage;
+export default Login;

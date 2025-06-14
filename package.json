@@ -1,0 +1,15 @@
+{
+  "name": "arenaquizz",
+  "version": "1.0.0",
+  "dependencies": {
+    "react-router-dom": "^7.6.2"
+  },
+  "scripts": {
+    "start": "concurrently \"npm run start-backend\" \"npm run start-frontend\"",
+    "start-backend": "cd backend && node index.js",
+    "start-frontend": "cd frontend && npm run dev"
+  },
+  "devDependencies": {
+    "concurrently": "^7.6.0"
+  }
+}

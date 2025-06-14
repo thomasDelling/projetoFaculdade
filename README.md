@@ -1,33 +1,87 @@
-# ArenaQuizz
 
-**Versão final** Pequenas alterções visuais e aplicações.
+# 🎯 ArenaQuizz
 
-## Como rodar
+**Versão final —** Pequenas melhorias visuais e funcionais aplicadas.
 
-1. Clone o repositório  
-2. Abra dois terminais
-3. Rode `npm install` nas pastas backend e frontend
-4. Dentro da pasta frontend rode `npm run dev` e abra o localhost
-5. Na raiz do projeto rode `node .\backend\` e espere a confrimação do servidor
+---
 
-## Tecnologias
+## 🚀 Como rodar o projeto
 
-- Node.js  
-- React
+1. Clone o repositório:
+```bash
+git clone <URL_DO_REPOSITORIO>
+```
 
-## Estrutura
+2. Na **raiz do projeto**, execute:
+```bash
+npm install
+```
+*(Instala as dependências da raiz, como o concurrently)*
 
-- backend/: código do servidor (API, banco, etc)  
-- frontend/: código do cliente (interface, front-end)
+3. Acesse as pastas `backend` e `frontend` e rode:
+```bash
+npm install
+```
+*(Isso instala as dependências de cada parte)*
 
-## Próximos passos
+4. Para rodar tudo junto (backend + frontend):
+```bash
+npm run start
+```
+Acesse o frontend em 👉 **http://localhost:5173**  
+O backend roda em 👉 **http://localhost:3000**
 
-- Sistema de logout
-- Perfil do jogador
-- Estilizar
+---
 
-## Autor
+## 🛠️ Tecnologias usadas
 
-Thomas Max Delling <br>
-Pedro Arthur Canavezi <br>
-João Victor Rosa de Jesus
+- ⚙️ Node.js (Express + MongoDB)
+- 🎨 React (Vite)
+
+---
+
+## 🗂️ Estrutura de pastas
+
+```
+/projeto
+├── backend     → API, banco de dados (MongoDB)
+├── frontend    → Interface (React + Vite)
+├── package.json → Scripts para rodar tudo junto
+```
+
+---
+
+## 🔐 Conta de administrador
+
+Para criar um admin, use o Postman no endpoint:
+
+```
+POST → http://localhost:3000/usuarios
+```
+
+Com o JSON no corpo da requisição:
+
+```json
+{
+  "nome": "Nome Admin",
+  "email": "admin@exemplo.com",
+  "senha": "senhaSegura123",
+  "role": "admin"
+}
+```
+
+---
+
+## 🚧 Próximos passos
+
+- 🔓 Sistema de logout  
+- 👤 Perfil do jogador  
+- 🎨 Melhorias na estilização
+
+---
+
+## 👥 Autores
+
+- Thomas Max Delling  
+- Pedro Arthur Canavezi  
+- João Victor Rosa de Jesus  

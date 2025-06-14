@@ -1,0 +1,275 @@
+/* src/styles/UserManager.css */
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+
+:root {
+  --primary-purple: #6a0dad; /* Roxo principal */
+  --light-purple: #8a2be2; /* Roxo mais claro */
+  --dark-purple: #4b0082; /* Roxo mais escuro */
+  --off-white: #f0f0f0; /* Branco suave */
+  --text-color: #333; /* Cor de texto padrão */
+  --header-bg: #5a099a; /* Roxo mais escuro para cabeçalhos */
+  --table-header-bg: #8a2be2; /* Roxo para cabeçalhos de tabela */
+  --border-radius: 10px;
+  --transition-speed: 0.3s;
+  --delete-red: #dc3545;
+  --delete-red-hover: #c82333;
+  --edit-blue: #007bff; /* Azul para editar */
+  --edit-blue-hover: #0056b3;
+}
+
+body, html, #root {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(135deg, var(--dark-purple) 0%, var(--primary-purple) 100%);
+  color: var(--text-color);
+  overflow-y: auto; /* Permite rolagem vertical se o conteúdo exceder a altura */
+  overflow-x: hidden; /* Previne rolagem horizontal */
+}
+
+.user-manager {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Centraliza o conteúdo horizontalmente */
+  max-width: 900px; /* Largura máxima para o conteúdo principal */
+  margin: 40px auto; /* Centraliza o componente na página com margem superior/inferior */
+  padding: 30px;
+  background-color: rgba(255, 255, 255, 0.95);
+  border-radius: var(--border-radius);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+  box-sizing: border-box; /* Inclui padding na largura total */
+}
+
+.user-manager h2 {
+  color: var(--primary-purple);
+  margin-bottom: 25px;
+  font-size: 2.5em;
+  font-weight: 700;
+  border-bottom: 2px solid var(--light-purple);
+  padding-bottom: 15px;
+  width: 100%;
+  text-align: center;
+}
+
+.user-manager > button { /* Botão "Voltar" */
+  background-color: #6c757d; /* Cinza para o botão de voltar */
+  color: var(--off-white);
+  padding: 10px 20px;
+  border: none;
+  border-radius: var(--border-radius);
+  font-size: 1em;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color var(--transition-speed), transform var(--transition-speed);
+  margin-bottom: 30px; /* Espaço abaixo do botão */
+  align-self: flex-start; /* Alinha o botão "Voltar" à esquerda */
+}
+
+.user-manager > button:hover {
+  background-color: #5a6268;
+  transform: translateY(-2px);
+}
+
+.user-manager > button:active {
+  background-color: #4b5157;
+  transform: translateY(0);
+}
+
+/* Formulário de Usuários */
+.user-manager form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-bottom: 40px;
+  width: 100%;
+  max-width: 500px; /* Largura ideal para o formulário */
+}
+
+.user-manager form input[type="text"],
+.user-manager form input[type="email"],
+.user-manager form input[type="password"] {
+  width: calc(100% - 24px); /* Ajuste para padding */
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 1em;
+  color: var(--text-color);
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.user-manager form input:focus {
+  border-color: var(--light-purple);
+  box-shadow: 0 0 0 3px rgba(138, 43, 226, 0.2);
+  outline: none;
+}
+
+.user-manager form button[type="submit"] {
+  background-color: var(--primary-purple);
+  color: var(--off-white);
+  padding: 12px 20px;
+  border: none;
+  border-radius: 5px;
+  font-size: 1.1em;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.user-manager form button[type="submit"]:hover {
+  background-color: var(--light-purple);
+  transform: translateY(-2px);
+}
+
+.user-manager form button[type="submit"]:active {
+  background-color: var(--dark-purple);
+  transform: translateY(0);
+}
+
+/* Tabela de Usuários */
+.user-manager table {
+  width: 100%;
+  border-collapse: collapse;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+  border-radius: var(--border-radius);
+  overflow: hidden; /* Garante que o border-radius funcione nas bordas da tabela */
+}
+
+.user-manager th,
+.user-manager td {
+  padding: 12px 15px;
+  text-align: left;
+  border-bottom: 1px solid #eee;
+  font-size: 0.9em;
+  white-space: nowrap; /* Evita que o texto quebre linhas */
+}
+
+.user-manager thead tr {
+  background-color: var(--table-header-bg);
+  color: var(--off-white);
+  text-transform: uppercase;
+  font-weight: 700;
+}
+
+.user-manager tbody tr:nth-child(even) {
+  background-color: #f8f8f8; /* Linhas zebradas */
+}
+
+.user-manager tbody tr:hover {
+  background-color: #f0e6fa; /* Leve destaque ao passar o mouse */
+}
+
+.user-manager td button {
+  padding: 8px 15px;
+  border: none;
+  border-radius: 5px;
+  font-size: 0.85em;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  margin-right: 8px; /* Espaço entre os botões de ação */
+}
+
+.user-manager td button:last-child {
+  margin-right: 0; /* Remove margem do último botão */
+}
+
+.user-manager td button:hover {
+  transform: translateY(-1px);
+}
+
+.user-manager td button:active {
+  transform: translateY(0);
+}
+
+.user-manager td button:first-of-type { /* Botão "Editar" */
+  background-color: var(--edit-blue);
+  color: var(--off-white);
+}
+
+.user-manager td button:first-of-type:hover {
+  background-color: var(--edit-blue-hover);
+}
+
+.user-manager td button:last-of-type { /* Botão "Deletar" */
+  background-color: var(--delete-red);
+  color: var(--off-white);
+}
+
+.user-manager td button:last-of-type:hover {
+  background-color: var(--delete-red-hover);
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .user-manager {
+    margin: 20px auto;
+    padding: 25px;
+    max-width: 95%; /* Mais largura em telas menores */
+  }
+
+  .user-manager h2 {
+    font-size: 2em;
+    margin-bottom: 20px;
+  }
+
+  .user-manager > button {
+    padding: 8px 15px;
+    font-size: 0.9em;
+  }
+
+  .user-manager form {
+    max-width: 100%; /* Formulário ocupa mais largura */
+  }
+
+  .user-manager form input,
+  .user-manager form button[type="submit"] {
+    font-size: 0.95em;
+    padding: 10px;
+  }
+
+  .user-manager th,
+  .user-manager td {
+    padding: 10px 8px;
+    font-size: 0.8em;
+  }
+
+  .user-manager td button {
+    padding: 6px 12px;
+    font-size: 0.75em;
+    margin-right: 5px;
+  }
+}
+
+@media (max-width: 480px) {
+  .user-manager {
+    padding: 20px;
+    margin: 15px auto;
+  }
+
+  .user-manager h2 {
+    font-size: 1.8em;
+  }
+
+  .user-manager th,
+  .user-manager td {
+    font-size: 0.7em;
+    padding: 8px 5px;
+  }
+
+  .user-manager td {
+    white-space: normal; /* Permite que o texto quebre em telas muito pequenas */
+  }
+
+  .user-manager td:last-child { /* Ações */
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    align-items: flex-start;
+  }
+  .user-manager td button {
+    width: 100%; /* Botões de ação ocupam a largura total na coluna */
+    margin-right: 0;
+  }
+}

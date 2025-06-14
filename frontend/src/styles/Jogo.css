@@ -1,0 +1,174 @@
+/* src/styles/Jogo.css */
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+
+:root {
+  --primary-purple: #6a0dad; /* Roxo principal */
+  --light-purple: #8a2be2; /* Roxo mais claro */
+  --dark-purple: #4b0082; /* Roxo mais escuro */
+  --off-white: #f0f0f0; /* Branco suave */
+  --text-color: #333; /* Cor de texto padrão */
+  --border-radius: 12px;
+  --transition-speed: 0.3s;
+  --correct-green: #28a745; /* Verde para respostas corretas/sucesso */
+  --wrong-red: #dc3545; /* Vermelho para respostas incorretas/erro */
+}
+
+body, html, #root {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+  font-family: 'Poppins', sans-serif;
+  overflow: hidden; /* Evita rolagem em todo o corpo */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(135deg, var(--dark-purple) 0%, var(--primary-purple) 100%);
+  color: var(--text-color);
+}
+
+.quiz-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  width: 100%;
+  padding: 20px;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.quiz-card {
+  background-color: rgba(255, 255, 255, 0.98);
+  padding: 40px;
+  border-radius: var(--border-radius);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.25);
+  width: 100%;
+  max-width: 700px; /* Mais largo para acomodar perguntas e respostas */
+  text-align: center;
+  box-sizing: border-box;
+  transform: translateY(0);
+  transition: transform 0.6s ease-out, opacity 0.6s ease-out;
+  animation: fadeInPop 0.9s ease-out forwards;
+}
+
+@keyframes fadeInPop {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.quiz-card h2 {
+  color: var(--primary-purple);
+  margin-bottom: 25px;
+  font-size: 2.2em;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+.quiz-card p.question {
+  font-size: 1.3em;
+  margin-bottom: 35px;
+  line-height: 1.6;
+  font-weight: 600;
+  color: var(--text-color);
+}
+
+.answers {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* Duas colunas para as respostas */
+  gap: 15px; /* Espaço entre os botões de resposta */
+  margin-bottom: 30px;
+}
+
+.answers button {
+  background-color: var(--off-white);
+  color: var(--primary-purple);
+  padding: 15px 20px;
+  border: 2px solid var(--primary-purple);
+  border-radius: var(--border-radius);
+  font-size: 1.1em;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color var(--transition-speed), color var(--transition-speed), transform var(--transition-speed), border-color var(--transition-speed);
+  text-align: left; /* Alinha o texto das alternativas à esquerda */
+}
+
+.answers button:hover {
+  background-color: var(--primary-purple);
+  color: var(--off-white);
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.answers button:active {
+  background-color: var(--dark-purple);
+  transform: translateY(0);
+}
+
+/* Estilos para a tela de resultado */
+.quiz-card.result h2 {
+  font-size: 2.8em;
+  color: var(--correct-green); /* Título de resultado em verde */
+  margin-bottom: 20px;
+}
+
+.quiz-card.result p {
+  font-size: 1.5em;
+  font-weight: 600;
+  color: var(--text-color);
+  margin-bottom: 40px;
+}
+
+.result-buttons {
+  display: flex;
+  flex-direction: column; /* Botões de resultado empilhados */
+  gap: 15px;
+}
+
+.result-buttons button {
+  background-color: var(--primary-purple);
+  color: var(--off-white);
+  padding: 14px 25px;
+  border: none;
+  border-radius: var(--border-radius);
+  font-size: 1.1em;
+  font-weight: 600;
+  cursor: pointer;
+  width: 100%;
+  transition: background-color var(--transition-speed), transform var(--transition-speed);
+}
+
+.result-buttons button:hover {
+  background-color: var(--light-purple);
+  transform: translateY(-2px);
+}
+
+.result-buttons button:active {
+  background-color: var(--dark-purple);
+  transform: translateY(0);
+}
+
+.result-buttons button:last-child { /* Botão Home em uma cor diferente, se desejar */
+  background-color: #6c757d; /* Cinza para Home */
+}
+
+.result-buttons button:last-child:hover {
+  background-color: #5a6268;
+}
+
+/* Estilo para mensagens de erro/carregamento */
+.quiz-card {
+  /* ... outros estilos ... */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 250px; /* Altura mínima para o card de erro/loading */
+}

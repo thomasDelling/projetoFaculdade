@@ -1,12 +1,16 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import "../styles/QuizMenu.css";
+import "../styles/Home.css";
 
-export default function QuizMenu() {
+export default function Home() {
   const navigate = useNavigate();
 
+  // Pega o nome do localStorage
+  const nome = localStorage.getItem("nome");
+
   const handleLogout = () => {
-    // Aqui você pode adicionar lógica de logout se necessário
+    // Limpa o localStorage e vai para login
+    localStorage.clear();
     navigate("/login");
   };
 
@@ -17,8 +21,7 @@ export default function QuizMenu() {
         <p>Teste seus conhecimentos e se divirta!</p>
 
         <div className="menu-buttons">
-          <button onClick={() => navigate("/quiz")}>🚀 Iniciar Jogo</button>
-          <button onClick={() => navigate("/admin")}>⚙️ Configurações</button>
+          <button onClick={() => navigate("/jogo")}>🚀 Iniciar Jogo</button>
           <button onClick={handleLogout}>🔒 Logout</button>
         </div>
       </div>

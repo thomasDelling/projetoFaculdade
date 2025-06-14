@@ -1,0 +1,161 @@
+/* src/styles/Admin.css */
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+
+:root {
+  --primary-purple: #6a0dad; /* Main purple */
+  --light-purple: #8a2be2; /* Lighter purple */
+  --dark-purple: #4b0082; /* Darker purple */
+  --off-white: #f0f0f0; /* Soft white */
+  --text-color: #333; /* Standard text color */
+  --border-radius: 12px;
+  --transition-speed: 0.3s;
+  --delete-red: #dc3545; /* Red for logout/delete actions */
+  --delete-red-hover: #c82333;
+}
+
+body, html, #root {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+  font-family: 'Poppins', sans-serif;
+  overflow: hidden; /* Prevent body scroll */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(135deg, var(--dark-purple) 0%, var(--primary-purple) 100%);
+  color: var(--text-color);
+}
+
+.admin-page {
+  display: flex;
+  flex-direction: column; /* Stack elements vertically */
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(255, 255, 255, 0.98); /* Slightly transparent white background */
+  padding: 50px 40px;
+  border-radius: var(--border-radius);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.25); /* Pronounced shadow */
+  width: 100%;
+  max-width: 550px; /* Ideal width for the admin menu */
+  text-align: center;
+  box-sizing: border-box;
+  animation: fadeInPop 0.9s ease-out forwards; /* Entry animation */
+}
+
+@keyframes fadeInPop {
+  from {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.admin-page h1 {
+  color: var(--primary-purple);
+  margin-bottom: 30px;
+  font-size: 2.8em;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.admin-buttons {
+  display: flex;
+  flex-direction: column; /* Buttons stacked vertically */
+  gap: 20px; /* Space between buttons */
+  width: 100%; /* Buttons take full width */
+  margin-bottom: 40px; /* Space before the logout button */
+}
+
+.admin-buttons button {
+  background-color: var(--primary-purple);
+  color: var(--off-white);
+  padding: 18px 25px; /* Larger padding for prominent buttons */
+  border: none;
+  border-radius: var(--border-radius);
+  font-size: 1.2em;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color var(--transition-speed), transform var(--transition-speed), box-shadow var(--transition-speed);
+  letter-spacing: 0.8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Shadow on buttons */
+  width: 100%;
+}
+
+.admin-buttons button:hover {
+  background-color: var(--light-purple);
+  transform: translateY(-3px); /* "Lift" effect */
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+}
+
+.admin-buttons button:active {
+  background-color: var(--dark-purple);
+  transform: translateY(0);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.logout-btn {
+  background-color: var(--delete-red);
+  color: var(--off-white);
+  padding: 12px 25px;
+  border: none;
+  border-radius: var(--border-radius);
+  font-size: 1em;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color var(--transition-speed), transform var(--transition-speed);
+  width: 100%;
+  max-width: 250px; /* Smaller width for logout button */
+  margin-top: 10px; /* Space above logout button */
+}
+
+.logout-btn:hover {
+  background-color: var(--delete-red-hover);
+  transform: translateY(-2px);
+}
+
+.logout-btn:active {
+  background-color: var(--dark-purple); /* Or a darker red */
+  transform: translateY(0);
+}
+
+/* Responsiveness */
+@media (max-width: 600px) {
+  .admin-page {
+    padding: 40px 25px;
+    margin: 0 15px;
+    max-width: 90%; /* More flexible width on smaller screens */
+  }
+
+  .admin-page h1 {
+    font-size: 2.2em;
+    margin-bottom: 25px;
+  }
+
+  .admin-buttons button {
+    font-size: 1.1em;
+    padding: 15px 20px;
+  }
+
+  .logout-btn {
+    font-size: 0.95em;
+    padding: 10px 20px;
+    max-width: 200px; /* Adjust for smaller screens */
+  }
+}
+
+@media (max-width: 400px) {
+  .admin-page h1 {
+    font-size: 2em;
+    letter-spacing: 1px;
+  }
+  .admin-buttons button {
+    font-size: 1em;
+    padding: 12px 15px;
+  }
+}

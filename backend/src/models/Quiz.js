@@ -1,13 +1,22 @@
 const mongoose = require("mongoose");
 
-const quizSchema = new mongoose.Schema({
-  pergunta: { type: String, required: true },
-  alternativaA: { type: String, required: true },
-  alternativaB: { type: String, required: true },
-  alternativaC: { type: String, required: true },
-  alternativaD: { type: String, required: true },
-  respostaCorreta: { type: String, required: true },
-});
+const quizSchema = new mongoose.Schema(
+  {
+    pergunta: { type: String, required: true },
+    alternativas: {
+      A: { type: String, required: true },
+      B: { type: String, required: true },
+      C: { type: String, required: true },
+      D: { type: String, required: true },
+    },
+    respostaCorreta: {
+      type: String,
+      required: true,
+      enum: ["A", "B", "C", "D"],
+    },
+  },
+  { timestamps: false }
+);
 
 const Quiz = mongoose.model("Quiz", quizSchema);
 

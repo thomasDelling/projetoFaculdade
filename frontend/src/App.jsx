@@ -1,28 +1,24 @@
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
-import QuizMenu from "./pages/QuizMenu";
-import QuizPage from "./pages/QuizPage";
-import HomePage from "./pages/HomePage";
-import LoginPage from "./pages/LoginPage";
-import RegisterPage from "./pages/RegisterPage";
+import Login from "./components/Login";
+import Register from "./components/Register";
+import Home from "./components/Home";
+import Jogo from "./components/Jogo";
+import Admin from "./components/Admin";
+import UserManager from "./components/UserManager";
+import QuizManager from "./components/QuizManager";
 
 function App() {
   return (
     <BrowserRouter>
       <Routes>
-        {/* Rota raiz redireciona para login */}
         <Route path="/" element={<Navigate to="/login" replace />} />
-        
-        {/* Rotas públicas */}
-        <Route path="/login" element={<LoginPage />} />
-        <Route path="/register" element={<RegisterPage />} />
-        
-        {/* Rotas protegidas (você pode adicionar autenticação depois) */}
-        <Route path="/menu" element={<QuizMenu />} />
-        <Route path="/quiz" element={<QuizPage />} />
-        <Route path="/admin" element={<HomePage />} />
-        
-        {/* Rota para páginas não encontradas (opcional) */}
-        <Route path="*" element={<h1>404 - Página não encontrada</h1>} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register />} />
+        <Route path="/home" element={<Home />} />
+        <Route path="/jogo" element={<Jogo />} />
+        <Route path="/admin" element={<Admin />} />
+        <Route path="/admin/usuarios" element={<UserManager />} />
+        <Route path="/admin/perguntas" element={<QuizManager />} />
       </Routes>
     </BrowserRouter>
   );

@@ -1,0 +1,177 @@
+/* src/styles/Login.css */
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+
+:root {
+  --primary-purple: #6a0dad; /* Roxo principal */
+  --light-purple: #8a2be2; /* Roxo mais claro */
+  --dark-purple: #4b0082; /* Roxo mais escuro */
+  --off-white: #f0f0f0; /* Branco suave */
+  --text-color: #333; /* Cor de texto padrão */
+  --error-red: #e74c3c; /* Vermelho para erros */
+  --border-radius: 8px;
+  --transition-speed: 0.3s;
+}
+
+body, html, #root {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+  font-family: 'Poppins', sans-serif;
+  overflow: hidden; /* Evita rolagem em todo o corpo */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(135deg, var(--dark-purple) 0%, var(--primary-purple) 100%);
+}
+
+.login-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh; /* Garante que o wrapper ocupe toda a altura da viewport */
+  width: 100%;
+  padding: 20px;
+  box-sizing: border-box; /* Inclui padding na largura e altura total */
+  overflow: hidden; /* Garante que não haja rolagem interna no wrapper */
+}
+
+.login-container {
+  background-color: rgba(255, 255, 255, 0.95); /* Fundo branco semi-transparente */
+  padding: 40px;
+  border-radius: var(--border-radius);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  width: 100%;
+  max-width: 400px;
+  text-align: center;
+  box-sizing: border-box;
+  transform: translateY(0);
+  transition: transform 0.5s ease-out, opacity 0.5s ease-out;
+  animation: fadeInScale 0.8s ease-out forwards;
+}
+
+@keyframes fadeInScale {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.login-container h2 {
+  color: var(--primary-purple);
+  margin-bottom: 30px;
+  font-size: 2.2em;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+.login-container form div {
+  margin-bottom: 20px;
+  text-align: left;
+}
+
+.login-container label {
+  display: block;
+  margin-bottom: 8px;
+  color: var(--text-color);
+  font-weight: 600;
+  font-size: 0.95em;
+}
+
+.login-container input[type="email"],
+.login-container input[type="password"] {
+  width: 100%;
+  padding: 12px 15px;
+  border: 1px solid #ddd;
+  border-radius: var(--border-radius);
+  font-size: 1em;
+  color: var(--text-color);
+  transition: border-color var(--transition-speed), box-shadow var(--transition-speed);
+  box-sizing: border-box;
+}
+
+.login-container input[type="email"]:focus,
+.login-container input[type="password"]:focus {
+  border-color: var(--light-purple);
+  box-shadow: 0 0 0 3px rgba(138, 43, 226, 0.2);
+  outline: none;
+}
+
+.login-container .erro {
+  color: var(--error-red);
+  margin-bottom: 15px;
+  font-weight: 600;
+  font-size: 0.9em;
+  animation: shake 0.5s ease-in-out;
+}
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  20%, 60% { transform: translateX(-5px); }
+  40%, 80% { transform: translateX(5px); }
+}
+
+.login-container button {
+  background-color: var(--primary-purple);
+  color: var(--off-white);
+  padding: 14px 25px;
+  border: none;
+  border-radius: var(--border-radius);
+  font-size: 1.1em;
+  font-weight: 600;
+  cursor: pointer;
+  width: 100%;
+  transition: background-color var(--transition-speed), transform var(--transition-speed);
+  margin-top: 20px;
+  letter-spacing: 0.5px;
+}
+
+.login-container button:hover {
+  background-color: var(--light-purple);
+  transform: translateY(-2px);
+}
+
+.login-container button:active {
+  background-color: var(--dark-purple);
+  transform: translateY(0);
+}
+
+.login-container p {
+  margin-top: 25px;
+  color: var(--text-color);
+  font-size: 0.9em;
+}
+
+.login-container p a {
+  color: var(--primary-purple);
+  text-decoration: none;
+  font-weight: 600;
+  transition: color var(--transition-speed);
+}
+
+.login-container p a:hover {
+  color: var(--light-purple);
+  text-decoration: underline;
+}
+
+/* Responsividade Básica */
+@media (max-width: 500px) {
+  .login-container {
+    padding: 30px 20px;
+    margin: 0 15px;
+  }
+
+  .login-container h2 {
+    font-size: 1.8em;
+  }
+
+  .login-container button {
+    font-size: 1em;
+    padding: 12px 20px;
+  }
+}

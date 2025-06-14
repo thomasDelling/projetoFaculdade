@@ -1,0 +1,219 @@
+/* src/styles/Register.css */
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+
+:root {
+  --primary-purple: #6a0dad; /* Roxo principal */
+  --light-purple: #8a2be2; /* Roxo mais claro */
+  --dark-purple: #4b0082; /* Roxo mais escuro */
+  --off-white: #f0f0f0; /* Branco suave */
+  --text-color: #333; /* Cor de texto padrão */
+  --success-green: #28a745; /* Verde para sucesso */
+  --error-red: #e74c3c; /* Vermelho para erros */
+  --border-radius: 8px;
+  --transition-speed: 0.3s;
+}
+
+body, html, #root {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+  font-family: 'Poppins', sans-serif;
+  overflow: hidden; /* Evita rolagem em todo o corpo */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(135deg, var(--dark-purple) 0%, var(--primary-purple) 100%);
+}
+
+.register-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  width: 100%;
+  padding: 20px;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.register-box {
+  background-color: rgba(255, 255, 255, 0.95);
+  padding: 40px;
+  border-radius: var(--border-radius);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  width: 100%;
+  max-width: 600px; /* Aumentado para acomodar os campos lado a lado */
+  text-align: center;
+  box-sizing: border-box;
+  transform: translateY(0);
+  transition: transform 0.5s ease-out, opacity 0.5s ease-out;
+  animation: fadeInScale 0.8s ease-out forwards;
+}
+
+@keyframes fadeInScale {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.register-box h2 {
+  color: var(--primary-purple);
+  margin-bottom: 30px;
+  font-size: 2.2em;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+/* Novo estilo para o grid dos campos */
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* Duas colunas de largura igual */
+  gap: 20px 30px; /* Espaço entre as linhas e entre as colunas */
+  margin-bottom: 20px; /* Espaço antes do botão ou mensagem */
+}
+
+.form-grid > div { /* Estilo para cada grupo de label/input */
+  text-align: left;
+}
+
+.register-box label {
+  display: block;
+  margin-bottom: 8px;
+  color: var(--text-color);
+  font-weight: 600;
+  font-size: 0.95em;
+}
+
+.register-box input[type="text"],
+.register-box input[type="email"],
+.register-box input[type="password"] {
+  width: 100%;
+  padding: 12px 15px;
+  border: 1px solid #ddd;
+  border-radius: var(--border-radius);
+  font-size: 1em;
+  color: var(--text-color);
+  transition: border-color var(--transition-speed), box-shadow var(--transition-speed);
+  box-sizing: border-box;
+}
+
+.register-box input[type="text"]:focus,
+.register-box input[type="email"]:focus,
+.register-box input[type="password"]:focus {
+  border-color: var(--light-purple);
+  box-shadow: 0 0 0 3px rgba(138, 43, 226, 0.2);
+  outline: none;
+}
+
+/* Mensagens de feedback (sucesso/erro) */
+.mensagem-feedback { /* Nova classe para centralizar o estilo das mensagens */
+  margin-top: 20px;
+  font-weight: 600;
+  font-size: 0.95em;
+  padding: 10px 15px;
+  border-radius: var(--border-radius);
+  animation: fadeIn 0.5s ease-out;
+  text-align: center; /* Centraliza o texto da mensagem */
+}
+
+.mensagem-feedback.success {
+  color: var(--success-green);
+  background-color: rgba(40, 167, 69, 0.1);
+  border: 1px solid var(--success-green);
+}
+
+.mensagem-feedback.error {
+  color: var(--error-red);
+  background-color: rgba(231, 76, 60, 0.1);
+  border: 1px solid var(--error-red);
+  animation: shake 0.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  20%, 60% { transform: translateX(-5px); }
+  40%, 80% { transform: translateX(5px); }
+}
+
+.register-box button {
+  background-color: var(--primary-purple);
+  color: var(--off-white);
+  padding: 14px 25px;
+  border: none;
+  border-radius: var(--border-radius);
+  font-size: 1.1em;
+  font-weight: 600;
+  cursor: pointer;
+  width: 100%;
+  transition: background-color var(--transition-speed), transform var(--transition-speed);
+  margin-top: 20px; /* Ajustado para estar abaixo do grid e da mensagem */
+  letter-spacing: 0.5px;
+}
+
+.register-box button:hover {
+  background-color: var(--light-purple);
+  transform: translateY(-2px);
+}
+
+.register-box button:active {
+  background-color: var(--dark-purple);
+  transform: translateY(0);
+}
+
+.register-box p.login-link { /* Nova classe para o parágrafo do link */
+  margin-top: 25px;
+  color: var(--text-color);
+  font-size: 0.9em;
+}
+
+.register-box p.login-link a {
+  color: var(--primary-purple);
+  text-decoration: none;
+  font-weight: 600;
+  transition: color var(--transition-speed);
+}
+
+.register-box p.login-link a:hover {
+  color: var(--light-purple);
+  text-decoration: underline;
+}
+
+/* Responsividade Aprimorada */
+@media (max-width: 768px) {
+  .register-box {
+    max-width: 90%; /* Mais flexível em telas médias */
+    padding: 30px;
+  }
+  .form-grid {
+    grid-template-columns: 1fr; /* Empilha os campos em telas menores */
+    gap: 20px;
+  }
+}
+
+@media (max-width: 500px) {
+  .register-box {
+    padding: 25px 20px;
+    margin: 0 15px;
+  }
+
+  .register-box h2 {
+    font-size: 1.8em;
+  }
+
+  .register-box button {
+    font-size: 1em;
+    padding: 12px 20px;
+  }
+}
