@@ -14,17 +14,11 @@ git clone <URL_DO_REPOSITORIO>
 
 2. Na **raiz do projeto**, execute:
 ```bash
-npm install
+npm run install-all
 ```
-*(Instala as dependências da raiz, como o concurrently)*
+*(Instala as dependências da raiz,  backend e frontend automaticamente)*
 
-3. Acesse as pastas `backend` e `frontend` e rode:
-```bash
-npm install
-```
-*(Isso instala as dependências de cada parte)*
-
-4. Para rodar tudo junto (backend + frontend):
+3. Para rodar tudo junto (backend + frontend):
 ```bash
 npm run start
 ```
@@ -63,9 +57,9 @@ Com o JSON no corpo da requisição:
 
 ```json
 {
-  "nome": "Nome Admin",
-  "email": "admin@exemplo.com",
-  "senha": "senhaSegura123",
+  "nome": "Nome",
+  "email": "nome@dev.com",
+  "senha": "senha",
   "role": "admin"
 }
 ```
