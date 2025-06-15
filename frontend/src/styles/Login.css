@@ -1,44 +1,48 @@
-/* src/styles/Login.css */
-
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap");
 
 :root {
-  --primary-purple: #6a0dad; /* Roxo principal */
-  --light-purple: #8a2be2; /* Roxo mais claro */
-  --dark-purple: #4b0082; /* Roxo mais escuro */
-  --off-white: #f0f0f0; /* Branco suave */
-  --text-color: #333; /* Cor de texto padrão */
-  --error-red: #e74c3c; /* Vermelho para erros */
+  --primary-purple: #6a0dad;
+  --light-purple: #8a2be2;
+  --dark-purple: #4b0082;
+  --off-white: #f0f0f0;
+  --text-color: #333;
+  --error-red: #e74c3c;
   --border-radius: 8px;
   --transition-speed: 0.3s;
 }
 
-body, html, #root {
+body,
+html,
+#root {
   margin: 0;
   padding: 0;
   height: 100%;
   width: 100%;
-  font-family: 'Poppins', sans-serif;
-  overflow: hidden; /* Evita rolagem em todo o corpo */
+  font-family: "Poppins", sans-serif;
+  overflow: hidden;
   display: flex;
   justify-content: center;
   align-items: center;
-  background: linear-gradient(135deg, var(--dark-purple) 0%, var(--primary-purple) 100%);
+  background: linear-gradient(
+    135deg,
+    var(--dark-purple) 0%,
+    var(--primary-purple) 100%
+  );
 }
 
 .login-wrapper {
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: 100vh; /* Garante que o wrapper ocupe toda a altura da viewport */
+  min-height: 100vh;
   width: 100%;
   padding: 20px;
-  box-sizing: border-box; /* Inclui padding na largura e altura total */
-  overflow: hidden; /* Garante que não haja rolagem interna no wrapper */
+  box-sizing: border-box;
+  overflow: hidden;
 }
 
 .login-container {
-  background-color: rgba(255, 255, 255, 0.95); /* Fundo branco semi-transparente */
+  background-color: rgba(255, 255, 255, 0.95);
   padding: 40px;
   border-radius: var(--border-radius);
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
@@ -91,7 +95,8 @@ body, html, #root {
   border-radius: var(--border-radius);
   font-size: 1em;
   color: var(--text-color);
-  transition: border-color var(--transition-speed), box-shadow var(--transition-speed);
+  transition: border-color var(--transition-speed),
+    box-shadow var(--transition-speed);
   box-sizing: border-box;
 }
 
@@ -111,9 +116,18 @@ body, html, #root {
 }
 
 @keyframes shake {
-  0%, 100% { transform: translateX(0); }
-  20%, 60% { transform: translateX(-5px); }
-  40%, 80% { transform: translateX(5px); }
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  20%,
+  60% {
+    transform: translateX(-5px);
+  }
+  40%,
+  80% {
+    transform: translateX(5px);
+  }
 }
 
 .login-container button {
@@ -126,7 +140,8 @@ body, html, #root {
   font-weight: 600;
   cursor: pointer;
   width: 100%;
-  transition: background-color var(--transition-speed), transform var(--transition-speed);
+  transition: background-color var(--transition-speed),
+    transform var(--transition-speed);
   margin-top: 20px;
   letter-spacing: 0.5px;
 }
@@ -159,7 +174,6 @@ body, html, #root {
   text-decoration: underline;
 }
 
-/* Responsividade Básica */
 @media (max-width: 500px) {
   .login-container {
     padding: 30px 20px;

@@ -1,46 +1,50 @@
-/* src/styles/UserManager.css */
-
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap");
 
 :root {
-  --primary-purple: #6a0dad; /* Roxo principal */
-  --light-purple: #8a2be2; /* Roxo mais claro */
-  --dark-purple: #4b0082; /* Roxo mais escuro */
-  --off-white: #f0f0f0; /* Branco suave */
-  --text-color: #333; /* Cor de texto padrão */
-  --header-bg: #5a099a; /* Roxo mais escuro para cabeçalhos */
-  --table-header-bg: #8a2be2; /* Roxo para cabeçalhos de tabela */
+  --primary-purple: #6a0dad;
+  --light-purple: #8a2be2;
+  --dark-purple: #4b0082;
+  --off-white: #f0f0f0;
+  --text-color: #333;
+  --header-bg: #5a099a;
+  --table-header-bg: #8a2be2;
   --border-radius: 10px;
   --transition-speed: 0.3s;
   --delete-red: #dc3545;
   --delete-red-hover: #c82333;
-  --edit-blue: #007bff; /* Azul para editar */
+  --edit-blue: #007bff;
   --edit-blue-hover: #0056b3;
 }
 
-body, html, #root {
+body,
+html,
+#root {
   margin: 0;
   padding: 0;
   height: 100%;
   width: 100%;
-  font-family: 'Poppins', sans-serif;
-  background: linear-gradient(135deg, var(--dark-purple) 0%, var(--primary-purple) 100%);
+  font-family: "Poppins", sans-serif;
+  background: linear-gradient(
+    135deg,
+    var(--dark-purple) 0%,
+    var(--primary-purple) 100%
+  );
   color: var(--text-color);
-  overflow-y: auto; /* Permite rolagem vertical se o conteúdo exceder a altura */
-  overflow-x: hidden; /* Previne rolagem horizontal */
+  overflow-y: auto;
+  overflow-x: hidden;
 }
 
 .user-manager {
   display: flex;
   flex-direction: column;
-  align-items: center; /* Centraliza o conteúdo horizontalmente */
-  max-width: 900px; /* Largura máxima para o conteúdo principal */
-  margin: 40px auto; /* Centraliza o componente na página com margem superior/inferior */
+  align-items: center;
+  max-width: 900px;
+  margin: 40px auto;
   padding: 30px;
   background-color: rgba(255, 255, 255, 0.95);
   border-radius: var(--border-radius);
   box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
-  box-sizing: border-box; /* Inclui padding na largura total */
+  box-sizing: border-box;
 }
 
 .user-manager h2 {
@@ -54,8 +58,8 @@ body, html, #root {
   text-align: center;
 }
 
-.user-manager > button { /* Botão "Voltar" */
-  background-color: #6c757d; /* Cinza para o botão de voltar */
+.user-manager > button {
+  background-color: #6c757d;
   color: var(--off-white);
   padding: 10px 20px;
   border: none;
@@ -63,9 +67,10 @@ body, html, #root {
   font-size: 1em;
   font-weight: 600;
   cursor: pointer;
-  transition: background-color var(--transition-speed), transform var(--transition-speed);
-  margin-bottom: 30px; /* Espaço abaixo do botão */
-  align-self: flex-start; /* Alinha o botão "Voltar" à esquerda */
+  transition: background-color var(--transition-speed),
+    transform var(--transition-speed);
+  margin-bottom: 30px;
+  align-self: flex-start;
 }
 
 .user-manager > button:hover {
@@ -78,20 +83,19 @@ body, html, #root {
   transform: translateY(0);
 }
 
-/* Formulário de Usuários */
 .user-manager form {
   display: flex;
   flex-direction: column;
   gap: 15px;
   margin-bottom: 40px;
   width: 100%;
-  max-width: 500px; /* Largura ideal para o formulário */
+  max-width: 500px;
 }
 
 .user-manager form input[type="text"],
 .user-manager form input[type="email"],
 .user-manager form input[type="password"] {
-  width: calc(100% - 24px); /* Ajuste para padding */
+  width: calc(100% - 24px);
   padding: 12px;
   border: 1px solid #ddd;
   border-radius: 5px;
@@ -128,13 +132,12 @@ body, html, #root {
   transform: translateY(0);
 }
 
-/* Tabela de Usuários */
 .user-manager table {
   width: 100%;
   border-collapse: collapse;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
   border-radius: var(--border-radius);
-  overflow: hidden; /* Garante que o border-radius funcione nas bordas da tabela */
+  overflow: hidden;
 }
 
 .user-manager th,
@@ -143,7 +146,7 @@ body, html, #root {
   text-align: left;
   border-bottom: 1px solid #eee;
   font-size: 0.9em;
-  white-space: nowrap; /* Evita que o texto quebre linhas */
+  white-space: nowrap;
 }
 
 .user-manager thead tr {
@@ -154,11 +157,11 @@ body, html, #root {
 }
 
 .user-manager tbody tr:nth-child(even) {
-  background-color: #f8f8f8; /* Linhas zebradas */
+  background-color: #f8f8f8;
 }
 
 .user-manager tbody tr:hover {
-  background-color: #f0e6fa; /* Leve destaque ao passar o mouse */
+  background-color: #f0e6fa;
 }
 
 .user-manager td button {
@@ -168,11 +171,11 @@ body, html, #root {
   font-size: 0.85em;
   cursor: pointer;
   transition: background-color 0.3s ease, transform 0.2s ease;
-  margin-right: 8px; /* Espaço entre os botões de ação */
+  margin-right: 8px;
 }
 
 .user-manager td button:last-child {
-  margin-right: 0; /* Remove margem do último botão */
+  margin-right: 0;
 }
 
 .user-manager td button:hover {
@@ -183,7 +186,7 @@ body, html, #root {
   transform: translateY(0);
 }
 
-.user-manager td button:first-of-type { /* Botão "Editar" */
+.user-manager td button:first-of-type {
   background-color: var(--edit-blue);
   color: var(--off-white);
 }
@@ -192,7 +195,7 @@ body, html, #root {
   background-color: var(--edit-blue-hover);
 }
 
-.user-manager td button:last-of-type { /* Botão "Deletar" */
+.user-manager td button:last-of-type {
   background-color: var(--delete-red);
   color: var(--off-white);
 }
@@ -201,12 +204,11 @@ body, html, #root {
   background-color: var(--delete-red-hover);
 }
 
-/* Responsividade */
 @media (max-width: 768px) {
   .user-manager {
     margin: 20px auto;
     padding: 25px;
-    max-width: 95%; /* Mais largura em telas menores */
+    max-width: 95%;
   }
 
   .user-manager h2 {
@@ -220,7 +222,7 @@ body, html, #root {
   }
 
   .user-manager form {
-    max-width: 100%; /* Formulário ocupa mais largura */
+    max-width: 100%;
   }
 
   .user-manager form input,
@@ -259,17 +261,17 @@ body, html, #root {
   }
 
   .user-manager td {
-    white-space: normal; /* Permite que o texto quebre em telas muito pequenas */
+    white-space: normal;
   }
 
-  .user-manager td:last-child { /* Ações */
+  .user-manager td:last-child {
     display: flex;
     flex-direction: column;
     gap: 5px;
     align-items: flex-start;
   }
   .user-manager td button {
-    width: 100%; /* Botões de ação ocupam a largura total na coluna */
+    width: 100%;
     margin-right: 0;
   }
 }

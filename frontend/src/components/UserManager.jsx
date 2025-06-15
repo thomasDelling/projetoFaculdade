@@ -3,7 +3,7 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import "../styles/UserManager.css";
 
-const USER_API = "http://localhost:3000/usuarios";
+const USER_API = "http://localhost:3002/users";
 
 export default function UserManager() {
   const [users, setUsers] = useState([]);

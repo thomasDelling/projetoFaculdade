@@ -5,11 +5,9 @@ import "../styles/Home.css";
 export default function Home() {
   const navigate = useNavigate();
 
-  // Pega o nome do localStorage
   const nome = localStorage.getItem("nome");
 
   const handleLogout = () => {
-    // Limpa o localStorage e vai para login
     localStorage.clear();
     navigate("/login");
   };

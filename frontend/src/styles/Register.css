@@ -1,30 +1,34 @@
-/* src/styles/Register.css */
-
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap");
 
 :root {
-  --primary-purple: #6a0dad; /* Roxo principal */
-  --light-purple: #8a2be2; /* Roxo mais claro */
-  --dark-purple: #4b0082; /* Roxo mais escuro */
-  --off-white: #f0f0f0; /* Branco suave */
-  --text-color: #333; /* Cor de texto padrão */
-  --success-green: #28a745; /* Verde para sucesso */
-  --error-red: #e74c3c; /* Vermelho para erros */
+  --primary-purple: #6a0dad;
+  --light-purple: #8a2be2;
+  --dark-purple: #4b0082;
+  --off-white: #f0f0f0;
+  --text-color: #333;
+  --success-green: #28a745;
+  --error-red: #e74c3c;
   --border-radius: 8px;
   --transition-speed: 0.3s;
 }
 
-body, html, #root {
+body,
+html,
+#root {
   margin: 0;
   padding: 0;
   height: 100%;
   width: 100%;
-  font-family: 'Poppins', sans-serif;
-  overflow: hidden; /* Evita rolagem em todo o corpo */
+  font-family: "Poppins", sans-serif;
+  overflow: hidden;
   display: flex;
   justify-content: center;
   align-items: center;
-  background: linear-gradient(135deg, var(--dark-purple) 0%, var(--primary-purple) 100%);
+  background: linear-gradient(
+    135deg,
+    var(--dark-purple) 0%,
+    var(--primary-purple) 100%
+  );
 }
 
 .register-container {
@@ -44,7 +48,7 @@ body, html, #root {
   border-radius: var(--border-radius);
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
   width: 100%;
-  max-width: 600px; /* Aumentado para acomodar os campos lado a lado */
+  max-width: 600px;
   text-align: center;
   box-sizing: border-box;
   transform: translateY(0);
@@ -71,15 +75,14 @@ body, html, #root {
   letter-spacing: 1px;
 }
 
-/* Novo estilo para o grid dos campos */
 .form-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr; /* Duas colunas de largura igual */
-  gap: 20px 30px; /* Espaço entre as linhas e entre as colunas */
-  margin-bottom: 20px; /* Espaço antes do botão ou mensagem */
+  grid-template-columns: 1fr 1fr;
+  gap: 20px 30px;
+  margin-bottom: 20px;
 }
 
-.form-grid > div { /* Estilo para cada grupo de label/input */
+.form-grid > div {
   text-align: left;
 }
 
@@ -100,7 +103,8 @@ body, html, #root {
   border-radius: var(--border-radius);
   font-size: 1em;
   color: var(--text-color);
-  transition: border-color var(--transition-speed), box-shadow var(--transition-speed);
+  transition: border-color var(--transition-speed),
+    box-shadow var(--transition-speed);
   box-sizing: border-box;
 }
 
@@ -112,15 +116,14 @@ body, html, #root {
   outline: none;
 }
 
-/* Mensagens de feedback (sucesso/erro) */
-.mensagem-feedback { /* Nova classe para centralizar o estilo das mensagens */
+.mensagem-feedback {
   margin-top: 20px;
   font-weight: 600;
   font-size: 0.95em;
   padding: 10px 15px;
   border-radius: var(--border-radius);
   animation: fadeIn 0.5s ease-out;
-  text-align: center; /* Centraliza o texto da mensagem */
+  text-align: center;
 }
 
 .mensagem-feedback.success {
@@ -137,14 +140,27 @@ body, html, #root {
 }
 
 @keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
 @keyframes shake {
-  0%, 100% { transform: translateX(0); }
-  20%, 60% { transform: translateX(-5px); }
-  40%, 80% { transform: translateX(5px); }
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  20%,
+  60% {
+    transform: translateX(-5px);
+  }
+  40%,
+  80% {
+    transform: translateX(5px);
+  }
 }
 
 .register-box button {
@@ -157,8 +173,9 @@ body, html, #root {
   font-weight: 600;
   cursor: pointer;
   width: 100%;
-  transition: background-color var(--transition-speed), transform var(--transition-speed);
-  margin-top: 20px; /* Ajustado para estar abaixo do grid e da mensagem */
+  transition: background-color var(--transition-speed),
+    transform var(--transition-speed);
+  margin-top: 20px;
   letter-spacing: 0.5px;
 }
 
@@ -172,7 +189,7 @@ body, html, #root {
   transform: translateY(0);
 }
 
-.register-box p.login-link { /* Nova classe para o parágrafo do link */
+.register-box p.login-link {
   margin-top: 25px;
   color: var(--text-color);
   font-size: 0.9em;
@@ -190,14 +207,13 @@ body, html, #root {
   text-decoration: underline;
 }
 
-/* Responsividade Aprimorada */
 @media (max-width: 768px) {
   .register-box {
-    max-width: 90%; /* Mais flexível em telas médias */
+    max-width: 90%;
     padding: 30px;
   }
   .form-grid {
-    grid-template-columns: 1fr; /* Empilha os campos em telas menores */
+    grid-template-columns: 1fr;
     gap: 20px;
   }
 }

@@ -1,7 +1,5 @@
 # Node dependencies
 /node_modules
-**/node_modules/
-node_modules
 
 # Logs
 logs
@@ -72,6 +70,6 @@ dist-ssr
 *.sln
 *.sw?
 
-# Docker (caso não use)
-docker-compose.yml
-Dockerfile
+# Docker files (não ignore se estiver usando Docker)
+# docker-compose.yml
+# Dockerfile

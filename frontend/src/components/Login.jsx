@@ -1,4 +1,3 @@
-// src/components/Login.jsx
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "../styles/Login.css";
@@ -7,23 +6,33 @@ function Login() {
   const [email, setEmail] = useState("");
   const [senha, setSenha] = useState("");
   const [erro, setErro] = useState("");
+  const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
   const handleLogin = async (e) => {
     e.preventDefault();
+    setErro("");
+    setLoading(true);
 
-    const res = await fetch("http://localhost:3000/auth/login", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ email, senha }),
-    });
+    try {
+      const res = await fetch("http://localhost:3001/api/auth/login", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email, senha }),
+      });
 
-    if (res.ok) {
-      const data = await res.json();
-      const role = data.user.role;
-      navigate(role === "admin" ? "/admin" : "/home");
-    } else {
-      setErro("Email ou senha inválidos");
+      if (res.ok) {
+        const data = await res.json();
+        const role = data.user?.role?.toLowerCase() || "user";
+        navigate(role === "admin" ? "/admin" : "/home");
+      } else {
+        const errorData = await res.json();
+        setErro(errorData.message || "Email ou senha inválidos");
+      }
+    } catch (error) {
+      setErro("Erro na conexão com o servidor");
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -39,6 +48,7 @@ function Login() {
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               required
+              disabled={loading}
             />
           </div>
           <div>
@@ -48,10 +58,13 @@ function Login() {
               value={senha}
               onChange={(e) => setSenha(e.target.value)}
               required
+              disabled={loading}
             />
           </div>
           {erro && <p className="erro">{erro}</p>}
-          <button type="submit">Entrar</button>
+          <button type="submit" disabled={loading}>
+            {loading ? "Entrando..." : "Entrar"}
+          </button>
         </form>
         <p>
           Não possui conta? <a href="/register">Cadastre-se</a>

@@ -3,7 +3,7 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import "../styles/QuizManager.css";
 
-const QUIZ_API = "http://localhost:3000/quiz";
+const QUIZ_API = "http://localhost:3003/quizzes";
 
 export default function QuizManager() {
   const [quizzes, setQuizzes] = useState([]);
