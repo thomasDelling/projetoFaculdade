@@ -3,7 +3,8 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import "../styles/Jogo.css";
 
-const QUIZ_API = "http://localhost:3000/quiz";
+const QUIZ_API = "http://localhost:3003/quizzes";
+
 const nomeUsuario = localStorage.getItem("nome") || "Usuário";
 
 export default function Jogo() {
@@ -12,7 +13,7 @@ export default function Jogo() {
   const [score, setScore] = useState(0);
   const [showResult, setShowResult] = useState(false);
   const [error, setError] = useState("");
-  const [noQuestions, setNoQuestions] = useState(false); // nova flag
+  const [noQuestions, setNoQuestions] = useState(false);
 
   const navigate = useNavigate();
 
@@ -28,16 +29,14 @@ export default function Jogo() {
 
     fetchQuestions();
 
-   
     const timeoutId = setTimeout(() => {
       if (questions.length === 0) {
         setNoQuestions(true);
       }
     }, 3000);
 
-    
     return () => clearTimeout(timeoutId);
-  }, [questions.length]); 
+  }, [questions.length]);
 
   const handleAnswer = (selected) => {
     const correct = questions[current].respostaCorreta;

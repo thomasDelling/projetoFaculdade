@@ -1,4 +1,3 @@
-// src/components/Register.jsx
 import React, { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import "../styles/Register.css";
@@ -39,7 +38,7 @@ function RegisterPage() {
     setLoading(true);
 
     try {
-      const response = await fetch("http://localhost:3000/usuarios", {
+      const response = await fetch("http://localhost:3002/users", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ nome, email, senha }),
@@ -110,8 +109,8 @@ function RegisterPage() {
                 onChange={(e) => setConfirmaSenha(e.target.value)}
               />
             </div>
-          </div> {}
-
+          </div>{" "}
+          {}
           <button type="submit" disabled={loading}>
             {loading ? "Enviando..." : "Confirmar"}
           </button>

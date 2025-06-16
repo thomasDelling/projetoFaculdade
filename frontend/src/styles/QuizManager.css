@@ -1,29 +1,18 @@
-/* src/styles/QuizManager.css */
-
-/*
-  Este arquivo CSS é específico para o componente QuizManager.
-  Variáveis CSS (:root), importação de fontes e estilos globais (body, html, #root)
-  devem ser definidos em um arquivo CSS global (ex: src/styles/global.css)
-  e importados uma única vez no ponto de entrada da sua aplicação (ex: src/index.js).
-*/
-
-/* Contêiner principal do QuizManager */
 .quiz-manager {
   display: flex;
-  flex-direction: column; /* Organiza os elementos internos verticalmente */
-  width: 98%; /* Ocupa a maior parte da largura da tela */
-  max-width: 1600px; /* Largura máxima para telas grandes */
-  height: 98vh; /* Ocupa 98% da altura visível da tela */
+  flex-direction: column;
+  width: 98%;
+  max-width: 1600px;
+  height: 98vh;
   background-color: rgba(255, 255, 255, 0.98);
   border-radius: var(--border-radius);
   box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
   box-sizing: border-box;
-  overflow: hidden; /* Essencial: garante que as seções filhas sejam contidas e rolem internamente */
-  margin: 1vh auto; /* Centraliza verticalmente e horizontalmente */
-  position: relative; /* Para o posicionamento do fixed-top */
+  overflow: hidden;
+  margin: 1vh auto;
+  position: relative;
 }
 
-/* SEÇÃO FIXA NO TOPO: TÍTULO, BOTÕES E FORMULÁRIO */
 .quiz-manager-fixed-top {
   padding: 25px 30px 20px;
   background-color: var(--off-white);
@@ -38,11 +27,11 @@
 }
 
 .quiz-manager-header-top {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
-    margin-bottom: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 10px;
 }
 
 .quiz-manager-header-top h2 {
@@ -61,7 +50,8 @@
   font-size: 1em;
   font-weight: 600;
   cursor: pointer;
-  transition: background-color var(--transition-speed), transform var(--transition-speed);
+  transition: background-color var(--transition-speed),
+    transform var(--transition-speed);
 }
 
 .back-button:hover {
@@ -74,24 +64,23 @@
   transform: translateY(0);
 }
 
-/* CONTROLES DO CRUD (FORMULÁRIO E BOTÕES DE AÇÃO) */
 .quiz-crud-controls {
   display: flex;
-  flex-wrap: wrap; /* Permite quebrar a linha em telas menores */
+  flex-wrap: wrap;
   justify-content: center;
-  align-items: flex-start; /* Alinha o topo dos itens flex */
+  align-items: flex-start;
   width: 100%;
-  gap: 25px; /* Espaço entre o formulário e o contêiner dos botões */
+  gap: 25px;
 }
 
 .quiz-form {
   display: flex;
   flex-wrap: wrap;
-  gap: 15px; /* Espaço menor entre os inputs do formulário */
+  gap: 15px;
   flex-grow: 1;
-  max-width: 1000px; /* Largura máxima para o formulário */
+  max-width: 1000px;
   justify-content: center;
-  align-items: flex-end; /* Alinha os inputs ao final da linha */
+  align-items: flex-end;
 }
 
 .quiz-form input[type="text"] {
@@ -101,15 +90,16 @@
   border-radius: 8px;
   font-size: 1.2em;
   color: var(--text-color);
-  transition: border-color var(--transition-speed), box-shadow var(--transition-speed);
+  transition: border-color var(--transition-speed),
+    box-shadow var(--transition-speed);
   min-width: 180px;
 }
 
 .quiz-form input[placeholder="Pergunta"] {
-    flex-basis: 100%;
-    max-width: 800px;
-    font-size: 1.3em;
-    padding: 18px;
+  flex-basis: 100%;
+  max-width: 800px;
+  font-size: 1.3em;
+  padding: 18px;
 }
 
 .quiz-form input[placeholder*="Alternativa"] {
@@ -117,10 +107,10 @@
 }
 
 .quiz-form input[placeholder="Alternativa Correta"] {
-    flex-basis: 150px;
-    max-width: 200px;
-    text-align: center;
-    font-weight: 600;
+  flex-basis: 150px;
+  max-width: 200px;
+  text-align: center;
+  font-weight: 600;
 }
 
 .quiz-form input:focus {
@@ -129,71 +119,66 @@
   outline: none;
 }
 
-/* Container para os botões de ação do CRUD (Criar/Atualizar e Listar) */
 .quiz-action-buttons {
-    display: flex;
-    flex-direction: column; /* Empilha os botões no container por padrão */
-    gap: 15px; /* Espaço entre os botões */
-    justify-content: center;
-    align-items: stretch; /* Garante que os botões ocupem a largura máxima do container */
-    flex-shrink: 0;
-    padding-top: 15px; /* Ajuste para alinhar com a base dos inputs do formulário */
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  justify-content: center;
+  align-items: stretch;
+  flex-shrink: 0;
+  padding-top: 15px;
 }
 
 .quiz-action-buttons .submit-button,
 .quiz-action-buttons .list-quizzes-button {
-  width: 100%; /* Botões ocupam 100% da largura do seu container */
+  width: 100%;
   padding: 16px 30px;
   border: none;
-  border-radius: 8px; /* Cantos levemente arredondados */
+  border-radius: 8px;
   font-size: 1.3em;
   font-weight: 600;
   cursor: pointer;
-  transition: all var(--transition-speed); /* Transição suave para todas as propriedades */
+  transition: all var(--transition-speed);
   white-space: nowrap;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Sombra suave */
-  letter-spacing: 0.5px; /* Espaçamento entre letras */
-  text-transform: uppercase; /* Texto em maiúsculas */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
 }
 
-/* Estilo para o botão de submit do formulário (Criar/Atualizar) */
 .quiz-action-buttons .submit-button {
-  background-color: var(--primary-purple); /* Cor roxa vibrante */
+  background-color: var(--primary-purple);
   color: var(--off-white);
 }
 
 .quiz-action-buttons .submit-button:hover {
-  background-color: var(--light-purple); /* Roxo mais claro ao passar o mouse */
-  transform: translateY(-3px); /* Leve levantamento ao passar o mouse */
-  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2); /* Sombra mais intensa */
+  background-color: var(--light-purple);
+  transform: translateY(-3px);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
 }
 
 .quiz-action-buttons .submit-button:active {
-  background-color: var(--dark-purple); /* Roxo mais escuro ao clicar */
-  transform: translateY(0); /* Volta à posição original */
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Sombra mais discreta ao clicar */
+  background-color: var(--dark-purple);
+  transform: translateY(0);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
-/* Botão de Listar Perguntas */
 .quiz-action-buttons .list-quizzes-button {
-  background-color: #28a745; /* Verde vibrante para listar */
+  background-color: #28a745;
   color: var(--off-white);
 }
 
 .quiz-action-buttons .list-quizzes-button:hover {
-  background-color: #218838; /* Verde mais escuro ao passar o mouse */
-  transform: translateY(-3px); /* Leve levantamento ao passar o mouse */
-  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2); /* Sombra mais intensa */
+  background-color: #218838;
+  transform: translateY(-3px);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
 }
 
 .quiz-action-buttons .list-quizzes-button:active {
-  background-color: #1e7e34; /* Verde ainda mais escuro ao clicar */
-  transform: translateY(0); /* Volta à posição original */
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Sombra mais discreta ao clicar */
+  background-color: #1e7e34;
+  transform: translateY(0);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
-
-/* SEÇÃO DE CONTEÚDO COM ROLAGEM (TABELA DE PERGUNTAS) */
 .quiz-manager-content {
   flex-grow: 1;
   overflow-y: auto;
@@ -202,7 +187,6 @@
   -webkit-overflow-scrolling: touch;
 }
 
-/* Wrapper para Tabela de Rolagem Horizontal */
 .table-responsive-wrapper {
   width: 100%;
   overflow-x: auto;
@@ -212,33 +196,31 @@
 
 .quiz-manager table {
   width: 100%;
-  min-width: 1300px; /* Largura mínima da tabela para acomodar mais conteúdo */
+  min-width: 1300px;
   border-collapse: collapse;
 }
 
 .quiz-manager th,
 .quiz-manager td {
-  padding: 18px 22px; /* Padding para células maiores */
+  padding: 18px 22px;
   text-align: left;
   border-bottom: 1px solid #eee;
-  font-size: 1.1em; /* Fonte nas células */
+  font-size: 1.1em;
   white-space: normal;
   word-wrap: break-word;
   vertical-align: top;
 }
 
-/* Estilos para colunas específicas com conteúdo longo */
 .quiz-manager td.question-cell {
-  max-width: 350px; /* Mais espaço para a pergunta */
+  max-width: 350px;
   min-width: 250px;
 }
 
 .quiz-manager td.alternative-cell {
-  max-width: 280px; /* Mais espaço para alternativas */
+  max-width: 280px;
   min-width: 150px;
 }
 
-/* Estilo para a coluna de Resposta Correta (compacta e centralizada) */
 .quiz-manager td.correct-answer-cell {
   min-width: 80px;
   text-align: center;
@@ -246,10 +228,9 @@
   color: var(--primary-purple);
 }
 
-/* Estilo para a coluna de Ações para garantir espaço aos botões */
 .quiz-manager td.actions-cell {
-    min-width: 200px; /* Mais espaço para os botões */
-    white-space: nowrap;
+  min-width: 200px;
+  white-space: nowrap;
 }
 
 .quiz-manager thead tr {
@@ -273,7 +254,8 @@
   border-radius: 6px;
   font-size: 0.95em;
   cursor: pointer;
-  transition: background-color var(--transition-speed), transform var(--transition-speed);
+  transition: background-color var(--transition-speed),
+    transform var(--transition-speed);
   margin-right: 12px;
 }
 
@@ -307,19 +289,18 @@
   background-color: var(--delete-red-hover);
 }
 
-/* RESPONSIVIDADE */
 @media (max-width: 1500px) {
   .quiz-manager {
     max-width: 98%;
   }
   .quiz-form input[placeholder="Pergunta"] {
-      max-width: 700px;
+    max-width: 700px;
   }
 }
 
 @media (max-width: 1200px) {
   .quiz-crud-controls {
-    flex-direction: column; /* Empilha formulário e botões */
+    flex-direction: column;
     align-items: center;
     gap: 30px;
   }
@@ -339,20 +320,20 @@
   }
   .quiz-action-buttons {
     width: 100%;
-    max-width: 400px; /* Limita a largura dos botões quando empilhados */
-    flex-direction: row; /* Alinha os botões lado a lado novamente em telas médias */
+    max-width: 400px;
+    flex-direction: row;
     gap: 20px;
-    padding-top: 0; /* Remove padding extra */
+    padding-top: 0;
   }
   .quiz-action-buttons .submit-button,
   .quiz-action-buttons .list-quizzes-button {
-    flex: 1 1 150px; /* Permite que se dividam o espaço */
+    flex: 1 1 150px;
     padding: 14px 25px;
     font-size: 1.2em;
-    max-width: none; /* Remove max-width para que possam crescer */
+    max-width: none;
   }
   .quiz-manager table {
-    min-width: 1100px; /* Ajusta a largura mínima da tabela */
+    min-width: 1100px;
   }
   .quiz-manager th,
   .quiz-manager td {
@@ -375,8 +356,8 @@
     height: 98vh;
   }
   .quiz-manager-fixed-top {
-      padding: 20px 25px 15px;
-      gap: 15px;
+    padding: 20px 25px 15px;
+    gap: 15px;
   }
   .quiz-manager-header-top h2 {
     font-size: 2.2em;
@@ -399,21 +380,21 @@
     padding: 14px;
   }
   .quiz-action-buttons {
-    flex-direction: column; /* Volta a empilhar os botões em telas menores */
+    flex-direction: column;
     gap: 15px;
   }
   .quiz-action-buttons .submit-button,
   .quiz-action-buttons .list-quizzes-button {
     padding: 12px 20px;
     font-size: 1.1em;
-    width: 100%; /* Ocupam 100% da largura em telas menores */
+    width: 100%;
     max-width: 300px;
   }
   .quiz-manager-content {
     padding: 20px 25px;
   }
   .quiz-manager table {
-    min-width: 950px; /* Ajusta a largura mínima da tabela */
+    min-width: 950px;
   }
   .quiz-manager th,
   .quiz-manager td {
@@ -449,8 +430,8 @@
     margin: 0;
   }
   .quiz-manager-fixed-top {
-      padding: 15px 20px 10px;
-      gap: 15px;
+    padding: 15px 20px 10px;
+    gap: 15px;
   }
   .quiz-manager-header-top h2 {
     font-size: 2em;
@@ -476,7 +457,7 @@
     font-size: 0.95em;
   }
   .quiz-action-buttons {
-    flex-direction: column; /* Força o empilhamento em telas pequenas */
+    flex-direction: column;
     gap: 10px;
   }
   .quiz-action-buttons .submit-button,
@@ -490,7 +471,7 @@
     padding: 15px 20px;
   }
   .quiz-manager table {
-    min-width: 750px; /* Ajusta a largura mínima da tabela */
+    min-width: 750px;
   }
   .quiz-manager th,
   .quiz-manager td {

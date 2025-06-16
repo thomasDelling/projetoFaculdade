@@ -1,29 +1,33 @@
-/* src/styles/Home.css */
-
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap");
 
 :root {
-  --primary-purple: #6a0dad; /* Roxo principal */
-  --light-purple: #8a2be2; /* Roxo mais claro */
-  --dark-purple: #4b0082; /* Roxo mais escuro */
-  --off-white: #f0f0f0; /* Branco suave */
-  --text-color: #333; /* Cor de texto padrão */
-  --border-radius: 12px; /* Raio da borda um pouco maior para cards */
+  --primary-purple: #6a0dad;
+  --light-purple: #8a2be2;
+  --dark-purple: #4b0082;
+  --off-white: #f0f0f0;
+  --text-color: #333;
+  --border-radius: 12px;
   --transition-speed: 0.3s;
 }
 
-body, html, #root {
+body,
+html,
+#root {
   margin: 0;
   padding: 0;
   height: 100%;
   width: 100%;
-  font-family: 'Poppins', sans-serif;
-  overflow: hidden; /* Evita rolagem em todo o corpo */
+  font-family: "Poppins", sans-serif;
+  overflow: hidden;
   display: flex;
   justify-content: center;
   align-items: center;
-  background: linear-gradient(135deg, var(--dark-purple) 0%, var(--primary-purple) 100%);
-  color: var(--text-color); /* Cor do texto padrão para todo o body */
+  background: linear-gradient(
+    135deg,
+    var(--dark-purple) 0%,
+    var(--primary-purple) 100%
+  );
+  color: var(--text-color);
 }
 
 .menu-container {
@@ -38,17 +42,17 @@ body, html, #root {
 }
 
 .menu-card {
-  background-color: rgba(255, 255, 255, 0.98); /* Fundo branco quase opaco */
+  background-color: rgba(255, 255, 255, 0.98);
   padding: 50px 40px;
   border-radius: var(--border-radius);
-  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.25); /* Sombra mais pronunciada */
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.25);
   width: 100%;
-  max-width: 500px; /* Largura ideal para o menu */
+  max-width: 500px;
   text-align: center;
   box-sizing: border-box;
   transform: translateY(0);
   transition: transform 0.6s ease-out, opacity 0.6s ease-out;
-  animation: fadeInPop 0.9s ease-out forwards; /* Animação de entrada diferente */
+  animation: fadeInPop 0.9s ease-out forwards;
 }
 
 @keyframes fadeInPop {
@@ -65,10 +69,10 @@ body, html, #root {
 .menu-card h1 {
   color: var(--primary-purple);
   margin-bottom: 15px;
-  font-size: 3em; /* Tamanho maior para o título principal */
+  font-size: 3em;
   font-weight: 700;
   letter-spacing: 2px;
-  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1); /* Pequena sombra no texto */
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
 }
 
 .menu-card p {
@@ -80,9 +84,9 @@ body, html, #root {
 
 .menu-buttons {
   display: flex;
-  flex-direction: column; /* Botões empilhados por padrão */
-  gap: 20px; /* Espaço entre os botões */
-  width: 100%; /* Garante que os botões ocupem a largura do contêiner */
+  flex-direction: column;
+  gap: 20px;
+  width: 100%;
 }
 
 .menu-buttons button {
@@ -94,15 +98,16 @@ body, html, #root {
   font-size: 1.2em;
   font-weight: 600;
   cursor: pointer;
-  width: 100%; /* Botões ocupam 100% da largura */
-  transition: background-color var(--transition-speed), transform var(--transition-speed), box-shadow var(--transition-speed);
+  width: 100%;
+  transition: background-color var(--transition-speed),
+    transform var(--transition-speed), box-shadow var(--transition-speed);
   letter-spacing: 0.8px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Sombra nos botões */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
 .menu-buttons button:hover {
   background-color: var(--light-purple);
-  transform: translateY(-3px); /* Efeito de "levantar" */
+  transform: translateY(-3px);
   box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
 }
 
@@ -112,21 +117,19 @@ body, html, #root {
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
-/* Estilo específico para o botão de Logout se desejar uma cor diferente */
-.menu-buttons button:last-child { /* Ou adicione uma classe específica no JSX, ex: className="logout-button" */
-  background-color: #dc3545; /* Vermelho para Logout */
+.menu-buttons button:last-child {
+  background-color: #dc3545;
 }
 
 .menu-buttons button:last-child:hover {
   background-color: #c82333;
 }
 
-/* Responsividade */
 @media (max-width: 600px) {
   .menu-card {
     padding: 40px 25px;
     margin: 0 15px;
-    max-width: 100%; /* Ocupa mais espaço em telas muito pequenas */
+    max-width: 100%;
   }
 
   .menu-card h1 {
