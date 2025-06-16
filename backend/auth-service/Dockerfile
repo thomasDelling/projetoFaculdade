@@ -1,3 +1,4 @@
+# Use node oficial
 FROM node:18-alpine
 
 WORKDIR /app
@@ -7,6 +8,6 @@ RUN npm install
 
 COPY . .
 
-EXPOSE 3002 
+EXPOSE 3001 
 
-CMD ["npm", "start"] // Start the user service
+CMD ["npm", "start"] // Start the auth service

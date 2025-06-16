@@ -13,7 +13,7 @@ module.exports = (req, res, next) => {
   ) {
     return res
       .status(400)
-      .json({ error: "Todas as alternativas (A, B, C, D) são obrigatórias" });
+      .json({ error: "Todas as alternativas (A, B, C, D) são obrigatórias" }); // All alternatives (A, B, C, D) are required
   }
 
   if (!["A", "B", "C", "D"].includes(respostaCorreta)) {

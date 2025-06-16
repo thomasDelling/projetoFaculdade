@@ -8,4 +8,4 @@ router.get("/:id", quizController.getQuizById);
 router.put("/:id", quizController.updateQuiz);
 router.delete("/:id", quizController.deleteQuiz);
 
-module.exports = router;
+module.exports = router; // Exportando o roteador para ser usado no servidor principal
