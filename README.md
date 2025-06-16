@@ -1,7 +1,6 @@
-
 # 🎯 **ArenaQuizz — Projeto Acadêmico de Microsserviços**
 
-![ArenaQuizz Banner](https://img.shields.io/badge/Microsserviços-Ativo-blue) ![React](https://img.shields.io/badge/React-Vite-informational) ![Docker](https://img.shields.io/badge/Docker-Orquestração-blue) ![MongoDB](https://img.shields.io/badge/MongoDB-NoSQL-green)
+![ArenaQuizz Banner](https://img.shields.io/badge/Microsserviços-Ativo-blue) ![React](https://img.shields.io/badge/React-Vite-informational) ![Docker](https://img.shields.io/badge/Docker-Orquestração-blue) ![MongoDB](https://img.shields.io/badge/MongoDB-green)
 
 ---
 
@@ -11,7 +10,7 @@
 
 🎓 Este projeto foi desenvolvido para aplicação prática das disciplinas:
 
-- **Sistemas Distribuídos**
+- **Sistemas Distribuídos e mobile**
 - **Usabilidade, Desenvolvimento Web, Mobile e Jogos**
 
 🔧 Envolve autenticação, banco relacional, microsserviços, frontend moderno com React, além de deploy com Docker.
@@ -33,13 +32,13 @@
 
 ## 🧪 **Tecnologias Utilizadas**
 
-| Camada        | Tecnologias                                                                 |
-|---------------|------------------------------------------------------------------------------|
-| **Frontend**  | React + Vite, JavaScript, CSS                                                |
-| **Backend**   | Node.js, Express, Mongoose                                              |
-| **Banco**     | MongoDB Atlas                                                       |
-| **DevOps**    | Docker, Docker Compose                                                       |
-| **Ferramentas** | GitHub, Git Bash, Trello, Postman, VSCode                                |
+| Camada          | Tecnologias                               |
+| --------------- | ----------------------------------------- |
+| **Frontend**    | React + Vite, JavaScript, CSS             |
+| **Backend**     | Node.js, Express, Mongoose                |
+| **Banco**       | MongoDB Atlas                             |
+| **DevOps**      | Docker, Docker Compose                    |
+| **Ferramentas** | GitHub, Git Bash, Trello, Postman, VSCode |
 
 ---
 
@@ -77,7 +76,6 @@ cd projetoFaculdade
 ```env
 PORT=3001
 MONGO_URI=mongodb+srv://<usuario>:<senha>@<cluster>.mongodb.net/auth
-JWT_SECRET=algumsegredo
 ```
 
 #### user-service
@@ -139,28 +137,28 @@ Corpo da requisição:
 
 ### 🔐 Auth (Login e Registro)
 
-| Método | Rota                  | Descrição                  |
-|--------|-----------------------|----------------------------|
+| Método | Rota                 | Descrição                  |
+| ------ | -------------------- | -------------------------- |
 | POST   | `/api/auth/register` | Registrar usuário ou admin |
 | POST   | `/api/auth/login`    | Realizar login             |
 
 ### 👥 Usuários (Admin)
 
-| Método | Rota              | Descrição              |
-|--------|-------------------|------------------------|
-| GET    | `/api/users`      | Listar todos os users  |
-| POST   | `/api/users`      | Criar novo usuário     |
-| PUT    | `/api/users/:id`  | Atualizar usuário      |
-| DELETE | `/api/users/:id` | Deletar usuário        |
+| Método | Rota             | Descrição             |
+| ------ | ---------------- | --------------------- |
+| GET    | `/api/users`     | Listar todos os users |
+| POST   | `/api/users`     | Criar novo usuário    |
+| PUT    | `/api/users/:id` | Atualizar usuário     |
+| DELETE | `/api/users/:id` | Deletar usuário       |
 
 ### ❓ Quiz
 
-| Método | Rota                | Descrição               |
-|--------|---------------------|-------------------------|
-| GET    | `/api/quizzes`      | Listar perguntas        |
-| POST   | `/api/quizzes`      | Criar nova pergunta     |
-| PUT    | `/api/quizzes/:id`  | Editar pergunta         |
-| DELETE | `/api/quizzes/:id` | Deletar pergunta        |
+| Método | Rota               | Descrição           |
+| ------ | ------------------ | ------------------- |
+| GET    | `/api/quizzes`     | Listar perguntas    |
+| POST   | `/api/quizzes`     | Criar nova pergunta |
+| PUT    | `/api/quizzes/:id` | Editar pergunta     |
+| DELETE | `/api/quizzes/:id` | Deletar pergunta    |
 
 ---
 
@@ -194,12 +192,13 @@ Este projeto visa:
 
 ## 👥 **Autores**
 
-- Thomas Max Delling  
-- Pedro Arthur Canavezi  
+- Thomas Max Delling
+- Pedro Arthur Canavezi
 - João Victor Rosa de Jesus
 
 ---
 
-### 👨‍💻 Desenvolvido por  
+### 👨‍💻 Desenvolvido por
+
 **Equipe ArenaQuizz — 4º semestre**  
 Análise e Desenvolvimento de Sistemas — Universidade São Judas
