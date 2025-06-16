@@ -9,4 +9,4 @@ COPY . .
 
 EXPOSE 3002 
 
-CMD ["npm", "start"]
+CMD ["npm", "start"] // Start the user service

@@ -2,7 +2,7 @@ const Quiz = require("../models/Quiz");
 
 exports.createQuiz = async (req, res) => {
   try {
-    const { pergunta, alternativas, respostaCorreta } = req.body;
+    const { pergunta, alternativas, respostaCorreta } = req.body; // Desestruturação dos dados recebidos
 
     const novoQuiz = new Quiz({
       pergunta,

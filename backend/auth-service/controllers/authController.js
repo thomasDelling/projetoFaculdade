@@ -1,5 +1,5 @@
 const User = require("../models/User");
-
+  // Controller for handling user registration and login
 exports.registerUser = async (req, res) => {
   const { nome, email, senha, role } = req.body;
 

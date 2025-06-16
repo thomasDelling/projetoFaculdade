@@ -7,7 +7,7 @@ const quizRoutes = require('./routes/quiz');
 
 dotenv.config();
 
-const app = express();
+const app = express(); // Cria uma instância do Express
 app.use(cors());
 app.use(express.json());
 

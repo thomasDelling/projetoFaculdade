@@ -1,4 +1,4 @@
-const User = require("../models/User");
+const User = require("../models/User");// User model for the authentication service
 
 exports.registerUser = async (req, res) => {
   try {

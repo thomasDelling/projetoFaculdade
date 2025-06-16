@@ -1,4 +1,4 @@
-const mongoose = require("mongoose");
+const mongoose = require("mongoose"); // Importando o mongoose para interagir com o MongoDB
 
 const userSchema = new mongoose.Schema({
   nome: { type: String, required: true },

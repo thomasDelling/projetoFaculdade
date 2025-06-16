@@ -9,4 +9,4 @@ COPY . .
 
 EXPOSE 3003 
 
-CMD ["npm", "start"]
+CMD ["npm", "start"] // Start the quiz service
