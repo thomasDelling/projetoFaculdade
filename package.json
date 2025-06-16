@@ -9,7 +9,7 @@
     "start-user": "cd backend/user-service && npm start",
     "start-quiz": "cd backend/quiz-service && npm start",
     "start-frontend": "cd frontend && npm run dev",
-    "install-all": "npm install && cd backend/auth-service && npm install && cd ../user-service && npm install && cd ../quiz-service && npm install && cd ../../frontend && npm install",
+    "install-all": "npm install && npm --prefix backend/auth-service install && npm --prefix backend/user-service install && npm --prefix backend/quiz-service install && npm --prefix frontend install",
     "dev": "npm run start"
   },
   "keywords": [],
